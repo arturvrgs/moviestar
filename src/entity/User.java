@@ -1,10 +1,14 @@
-package model.entity;
+package entity;
 
 public class User {
 
     private int id;
     private String username;
     private Watchlist watchlist;
+
+    public void makeReview() {
+
+    }
 
     public User(String username) {
         this.username = username;

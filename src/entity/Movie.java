@@ -1,4 +1,4 @@
-package model.entity;
+package entity;
 
 import java.util.List;
 
@@ -7,19 +7,32 @@ public class Movie {
     private int id;
     private String title;
     private String language;
-    private List<String> mainCasting;
-    private List<String> genres;
+    private String director;
+    private String genres;
     private int totalReviews, stars, releaseYear;
-    private double runtime;
+    private int runtime;
 
-    public Movie(int totalReviews, List<String> genres, List<String> mainCasting, String language, String title, int releaseYear, double runtime) {
+    public Movie(
+                int id, String title, String language,
+                String director, String genres, int totalReviews,
+                int stars, int releaseYear
+    ) {
+        this.runtime = runtime;
+        this.releaseYear = releaseYear;
         this.totalReviews = totalReviews;
         this.genres = genres;
-        this.mainCasting = mainCasting;
-        this.language = language;
+        this.director = director;
         this.title = title;
-        this.releaseYear = releaseYear;
-        this.runtime = runtime;
+        this.language = language;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -38,19 +51,19 @@ public class Movie {
         this.language = language;
     }
 
-    public List<String> getMainCasting() {
-        return mainCasting;
+    public String getDirector() {
+        return director;
     }
 
-    public void setMainCasting(List<String> mainCasting) {
-        this.mainCasting = mainCasting;
+    public void setDirector(String director) {
+        this.director = director;
     }
 
-    public List<String> getGenres() {
+    public String getGenres() {
         return genres;
     }
 
-    public void setGenres(List<String> genres) {
+    public void setGenres(String genres) {
         this.genres = genres;
     }
 
@@ -78,20 +91,12 @@ public class Movie {
         this.releaseYear = releaseYear;
     }
 
-    public double getRuntime() {
+    public int getRuntime() {
         return runtime;
     }
 
-    public void setRuntime(double runtime) {
+    public void setRuntime(int runtime) {
         this.runtime = runtime;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 }
 
