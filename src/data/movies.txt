@@ -1,6 +1,0 @@
-id;title;language;director;genres;totalReviews;stars;releaseYear;runtime
-1;Bastardos Inglórios;Inglês;Quentin Tarantino;Ação,Comédia,Drama;0;0;2009;233
-2;O Poderoso Chefão;Inglês;Francis Ford Coppola;Crime,Drama;0;0;1972;255
-3;Forrest Gump;Inglês;Robert Zemeckis;Drama,Romance;0;0;1994;222
-4;A Origem;Inglês;Christopher Nolan;Ação,Ficção Científica,Thriller;0;0;2010;228
-5;Cidade de Deus;Português;Fernando Meirelles;Crime,Drama;0;0;2002;210

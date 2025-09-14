@@ -1,6 +1,4 @@
-package entity;
-
-import java.util.List;
+package model.entity;
 
 public class Movie {
 
@@ -8,14 +6,14 @@ public class Movie {
     private String title;
     private String language;
     private String director;
-    private String genres;
+    private String[] genres;
     private int totalReviews, stars, releaseYear;
     private int runtime;
 
     public Movie(
                 int id, String title, String language,
-                String director, String genres, int totalReviews,
-                int stars, int releaseYear
+                String director, String[] genres, int totalReviews,
+                int stars, int releaseYear, int runtime
     ) {
         this.runtime = runtime;
         this.releaseYear = releaseYear;
@@ -59,11 +57,11 @@ public class Movie {
         this.director = director;
     }
 
-    public String getGenres() {
+    public String[] getGenres() {
         return genres;
     }
 
-    public void setGenres(String genres) {
+    public void setGenres(String[] genres) {
         this.genres = genres;
     }
 

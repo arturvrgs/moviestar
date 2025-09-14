@@ -1,6 +1,6 @@
-package factory;
+package model.factory;
 
-import entity.User;
+import model.entity.User;
 
 import java.util.Scanner;
 

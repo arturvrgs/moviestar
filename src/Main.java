@@ -1,14 +1,15 @@
-import entity.Movie;
-import entity.User;
+import controller.MovieController;
 import repository.MovieRepository;
+import service.MovieService;
 
 import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-        MovieRepository movieRepository = new MovieRepository(new File("src/data/movies.txt"));
-       //listagem filmes
+        MovieRepository movieRepository = new MovieRepository(new File("data/movies.txt"));
+        MovieService movieService = new MovieService(movieRepository);
+        MovieController movieController = new MovieController(movieService);
 
-        movieRepository.showAll();
+        movieController.showAllMovies();
     }
 }

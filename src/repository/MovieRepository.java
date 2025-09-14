@@ -1,8 +1,7 @@
 package repository;
 
-import entity.Movie;
-import factory.MovieFactory;
-import factory.UserFactory;
+import model.entity.Movie;
+import model.factory.MovieFactory;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,16 +12,17 @@ import java.util.Scanner;
 public class MovieRepository {
 
     private final File moviesFile;
-    private List<Movie> movies;
 
     public MovieRepository(File moviesFile) {
         this.moviesFile = moviesFile;
-        this.movies = new ArrayList<>();
     }
 
-    public List<Movie> getMovies() {
+    public List<Movie> getData() {
+
+        List<Movie> movies = new ArrayList<>();
 
         try (Scanner scanner = new Scanner(moviesFile)) {
+
 
             //pula a primeira linha
             if (scanner.hasNextLine()) scanner.nextLine();
@@ -32,15 +32,18 @@ public class MovieRepository {
                 String linha = scanner.nextLine();
                 String[] colunas = linha.split(";");
 
+                String[] genres = colunas[4].split(","); //criando array de generos
+
                 Movie movie = MovieFactory.createMovie(
-                        Integer.parseInt(colunas[0]),
-                        colunas[1],
-                        colunas[2],
-                        colunas[3],
-                        colunas[4],
-                        Integer.parseInt(colunas[5]),
-                        Integer.parseInt(colunas[6]),
-                        Integer.parseInt(colunas[7])
+                        Integer.parseInt(colunas[0]), //ID
+                        colunas[1], //TITLE
+                        colunas[2], //LANGUAGE
+                        colunas[3], //DIRECTOR
+                        genres, //GENRES
+                        Integer.parseInt(colunas[5]), //TOTAL REVIEWS
+                        Integer.parseInt(colunas[6]), //STARS
+                        Integer.parseInt(colunas[7]), //RELEASE YEAR
+                        Integer.parseInt(colunas[8]) //RUNTIME (IN MINUTES)
                 );
                 movies.add(movie);
             }
@@ -49,14 +52,5 @@ public class MovieRepository {
         }
 
         return movies;
-    }
-
-    public void showAll() {
-        for (Movie movie : getMovies()) {
-            System.out.println("Título: " + movie.getTitle());
-            System.out.println("Diretor: " + movie.getDirector());
-            System.out.println("Generos: " + movie.getGenres());
-            System.out.println("Ano de Lançamento: " + movie.getReleaseYear());
-        }
     }
 }
