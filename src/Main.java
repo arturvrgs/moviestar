@@ -20,7 +20,7 @@ public class Main {
         ReviewService reviewService = new ReviewService(reviewRepository);
         ReviewController reviewController = new ReviewController(reviewService);
 
-        movieController.showAllMovies();
+
         reviewController.showAllReviews();
     }
 }

@@ -6,12 +6,12 @@ public class Review {
 
     private int id;
     private int user;
-    private int movie;
+    private Movie movie;
     private int stars;
     private String comment;
     private String publishDate;
 
-    public Review(int id, int user, int movie, int stars, String comment, String publishDate) {
+    public Review(int id, int user, Movie movie, int stars, String comment, String publishDate) {
         this.user = user;
         this.movie = movie;
         this.stars = stars;
@@ -27,11 +27,11 @@ public class Review {
         this.user = user;
     }
 
-    public int getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
-    public void setMovie(int movie) {
+    public void setMovie(Movie movie) {
         this.movie = movie;
     }
 

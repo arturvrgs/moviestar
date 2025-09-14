@@ -15,12 +15,19 @@ public class Display {
        }
     }
 
+    public static void showMovieById(Movie movie) {
+        System.out.println("Filme: " + movie.getTitle());
+    }
+
     public static void showAllReviews(List<Review> reviews) {
         for(Review review : reviews) {
+            System.out.println("Review: ");
+            System.out.println("--------------------------------------------------");
             System.out.println("Usuário: " + review.getUser());
-            System.out.println("Filme: " + review.getMovie());
+            showMovieById(review.getMovie());
             System.out.println("Comentário: " + review.getComment());
             System.out.println("Data de publicação: " + review.getPublishDate());
+            System.out.println("--------------------------------------------------");
         }
     }
 }

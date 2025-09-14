@@ -18,4 +18,9 @@ public class MovieController {
         List<Movie> movies = movieService.getAllMovies();
         Display.showAllMovies(movies);
     }
+
+    public void showMovieById(int id) {
+        Movie movie = movieService.getMovieById(id);
+        Display.showMovieById(movie);
+    }
 }

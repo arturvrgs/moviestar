@@ -15,4 +15,15 @@ public class MovieService {
     public List<Movie> getAllMovies() {
         return movieRepository.getData();
     }
+
+    public Movie getMovieById(int id) {
+
+        for(Movie movie : getAllMovies()) {
+            if(movie.getId() == id) {
+                return movie;
+            }
+        }
+
+        return null;
+    }
 }
