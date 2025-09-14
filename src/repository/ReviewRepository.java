@@ -29,7 +29,6 @@ public class ReviewRepository {
 
             //pula a primeira linha
             if (scanner.hasNextLine()) scanner.nextLine();
-
             while (scanner.hasNextLine()) {
 
                 String linha = scanner.nextLine();

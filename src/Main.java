@@ -6,17 +6,18 @@ import service.MovieService;
 import service.ReviewService;
 
 import java.io.File;
-import java.util.Calendar;
-import java.util.Date;
 
 public class Main {
     public static void main(String[] args) {
 
-        MovieRepository movieRepository = new MovieRepository(new File("data/movies.txt"));
+        File MOVIES_FILE = new File("data/movies.txt");
+        File REVIEWS_FILE = new File("data/reviews.txt");
+
+        MovieRepository movieRepository = new MovieRepository(MOVIES_FILE);
         MovieService movieService = new MovieService(movieRepository);
         MovieController movieController = new MovieController(movieService);
 
-        ReviewRepository reviewRepository = new ReviewRepository(new File("data/reviews.txt"));
+        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE);
         ReviewService reviewService = new ReviewService(reviewRepository);
         ReviewController reviewController = new ReviewController(reviewService);
 

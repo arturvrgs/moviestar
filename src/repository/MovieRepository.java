@@ -23,10 +23,7 @@ public class MovieRepository {
 
         try (Scanner scanner = new Scanner(moviesFile)) {
 
-
-            //pula a primeira linha
             if (scanner.hasNextLine()) scanner.nextLine();
-
             while (scanner.hasNextLine()) {
 
                 String linha = scanner.nextLine();
