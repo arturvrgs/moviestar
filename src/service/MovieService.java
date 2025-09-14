@@ -15,5 +15,4 @@ public class MovieService {
     public List<Movie> getAllMovies() {
         return movieRepository.getData();
     }
-
 }

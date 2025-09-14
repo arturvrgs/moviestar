@@ -1,17 +1,17 @@
 package model.entity;
-
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Review {
 
     private int id;
-    private User user;
-    private Movie movie;
+    private int user;
+    private int movie;
     private int stars;
     private String comment;
-    private Date publishDate;
+    private String publishDate;
 
-    public Review(User user, Movie movie, int stars, String comment, Date publishDate) {
+    public Review(int id, int user, int movie, int stars, String comment, String publishDate) {
         this.user = user;
         this.movie = movie;
         this.stars = stars;
@@ -19,19 +19,19 @@ public class Review {
         this.publishDate = publishDate;
     }
 
-    public User getUser() {
+    public int getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(int user) {
         this.user = user;
     }
 
-    public Movie getMovie() {
+    public int getMovie() {
         return movie;
     }
 
-    public void setMovie(Movie movie) {
+    public void setMovie(int movie) {
         this.movie = movie;
     }
 
@@ -51,11 +51,11 @@ public class Review {
         this.comment = comment;
     }
 
-    public Date getPublishDate() {
+    public String getPublishDate() {
         return publishDate;
     }
 
-    public void setPublishDate(Date publishDate) {
+    public void setPublishDate(String publishDate) {
         this.publishDate = publishDate;
     }
 

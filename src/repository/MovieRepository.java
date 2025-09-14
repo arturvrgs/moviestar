@@ -32,7 +32,7 @@ public class MovieRepository {
                 String linha = scanner.nextLine();
                 String[] colunas = linha.split(";");
 
-                String[] genres = colunas[4].split(","); //criando array de generos
+                String[] genres = colunas[4].split(",");
 
                 Movie movie = MovieFactory.createMovie(
                         Integer.parseInt(colunas[0]), //ID
@@ -45,6 +45,7 @@ public class MovieRepository {
                         Integer.parseInt(colunas[7]), //RELEASE YEAR
                         Integer.parseInt(colunas[8]) //RUNTIME (IN MINUTES)
                 );
+
                 movies.add(movie);
             }
         } catch (FileNotFoundException e) {

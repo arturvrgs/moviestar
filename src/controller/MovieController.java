@@ -16,7 +16,6 @@ public class MovieController {
 
     public void showAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
-
         Display.showAllMovies(movies);
     }
 }
