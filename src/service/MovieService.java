@@ -1,7 +1,7 @@
 package service;
+
 import model.entity.Movie;
 import repository.MovieRepository;
-
 import java.util.List;
 
 public class MovieService {

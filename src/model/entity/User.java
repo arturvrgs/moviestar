@@ -4,14 +4,20 @@ public class User {
 
     private int id;
     private String username;
-    private Watchlist watchlist;
+    private Review[] reviews;
 
-    public void makeReview() {
-
+    public User(int id, String username, Review[] reviews) {
+        this.id = id;
+        this.username = username;
+        this.reviews = reviews;
     }
 
-    public User(String username) {
-        this.username = username;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -22,19 +28,11 @@ public class User {
         this.username = username;
     }
 
-    public Watchlist getWatchlist() {
-        return watchlist;
+    public Review[] getReviews() {
+        return reviews;
     }
 
-    public void setWatchlist(Watchlist watchlist) {
-        this.watchlist = watchlist;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setReviews(Review[] reviews) {
+        this.reviews = reviews;
     }
 }

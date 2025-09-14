@@ -2,7 +2,6 @@ package repository;
 
 import model.entity.Movie;
 import model.factory.MovieFactory;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;

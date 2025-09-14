@@ -1,0 +1,3 @@
+id;username;reviews;
+1;arturvrgs;1,2;
+2;giccs;3,4;

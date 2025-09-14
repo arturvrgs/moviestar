@@ -2,7 +2,6 @@ package model.factory;
 
 import model.entity.Movie;
 import model.entity.Review;
-import model.entity.User;
 
 public class ReviewFactory {
     public static Review createReview(

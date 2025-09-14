@@ -1,3 +1,5 @@
 id;user;movie;stars;comment;publishDate;
 1;1;1;4;Melhor filme do Tarantino!;2025-09-14;
 2;1;2;5;Melhor filme do Coppola!;2025-01-05;
+3;2;7;5;Que fotografia linda!;2025-04-02;
+4;2;21;5;O melhor dos clássicos!;2025-07-08;

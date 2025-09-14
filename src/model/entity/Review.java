@@ -12,6 +12,7 @@ public class Review {
     private String publishDate;
 
     public Review(int id, int user, Movie movie, int stars, String comment, String publishDate) {
+        this.id = id;
         this.user = user;
         this.movie = movie;
         this.stars = stars;

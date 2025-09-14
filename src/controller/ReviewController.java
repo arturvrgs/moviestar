@@ -2,7 +2,6 @@ package controller;
 
 import model.entity.Movie;
 import model.entity.Review;
-import service.MovieService;
 import service.ReviewService;
 import view.Display;
 
@@ -18,5 +17,10 @@ public class ReviewController {
     public void showAllReviews() {
         List<Review> reviews = reviewService.getAllReviews();
         Display.showAllReviews(reviews);
+    }
+
+    public void showReviewById(int id) {
+        Review review = reviewService.getReviewById(id);
+        Display.showReviewById(review);
     }
 }
