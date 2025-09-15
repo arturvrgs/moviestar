@@ -1,8 +1,6 @@
 package service;
 
-import model.entity.Review;
 import model.entity.User;
-import repository.ReviewRepository;
 import repository.UserRepository;
 
 import java.util.List;

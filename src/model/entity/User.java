@@ -4,9 +4,9 @@ public class User {
 
     private int id;
     private String username;
-    private Review[] reviews;
+    private String[] reviews;
 
-    public User(int id, String username, Review[] reviews) {
+    public User(int id, String username, String[] reviews) {
         this.id = id;
         this.username = username;
         this.reviews = reviews;
@@ -28,11 +28,11 @@ public class User {
         this.username = username;
     }
 
-    public Review[] getReviews() {
+    public String[] getReviews() {
         return reviews;
     }
 
-    public void setReviews(Review[] reviews) {
+    public void setReviews(String[] reviews) {
         this.reviews = reviews;
     }
 }

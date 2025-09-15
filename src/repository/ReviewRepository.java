@@ -1,9 +1,7 @@
 package repository;
 
-import model.entity.Movie;
 import model.entity.Review;
 import model.factory.ReviewFactory;
-import service.MovieService;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -24,9 +22,6 @@ public class ReviewRepository {
 
         try (Scanner scanner = new Scanner(reviewsFile)) {
 
-            MovieRepository movieRepository = new MovieRepository(new File("data/movies.txt"));
-            MovieService movieService = new MovieService(movieRepository);
-
             //pula a primeira linha
             if (scanner.hasNextLine()) scanner.nextLine();
             while (scanner.hasNextLine()) {
@@ -34,12 +29,10 @@ public class ReviewRepository {
                 String linha = scanner.nextLine();
                 String[] colunas = linha.split(";");
 
-                Movie movie = movieService.getMovieById(Integer.parseInt(colunas[2]));
-
                 Review review = ReviewFactory.createReview(
                         Integer.parseInt(colunas[0]), // id
                         Integer.parseInt(colunas[1]), // user
-                        movie, // movie
+                        Integer.parseInt(colunas[2]), // movie
                         Integer.parseInt(colunas[3]), // stars
                         colunas[4],                   // comment
                         colunas[5]                    // publishDate
