@@ -2,8 +2,6 @@ package service;
 
 import model.entity.Review;
 import repository.ReviewRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class ReviewService {

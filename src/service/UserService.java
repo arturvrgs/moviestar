@@ -1,8 +1,11 @@
 package service;
 
+import model.entity.Review;
 import model.entity.User;
+import model.factory.UserFactory;
 import repository.UserRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserService {
@@ -23,5 +26,15 @@ public class UserService {
             }
         }
         return null;
+    }
+
+    public void registerUser(String username) {
+
+            int id = getAllUsers().getLast().getId() + 1;
+            List<String> reviews = new ArrayList<>();
+
+            User user = UserFactory.createUser(id, username, reviews);
+
+            userRepository.save(user);
     }
 }

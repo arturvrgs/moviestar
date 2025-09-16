@@ -6,9 +6,9 @@ public class User {
 
     private int id;
     private String username;
-    private List<Review> reviews;
+    private List<String>  reviews;
 
-    public User(int id, String username, List<Review> reviews) {
+    public User(int id, String username, List<String>  reviews) {
         this.id = id;
         this.username = username;
         this.reviews = reviews;
@@ -30,11 +30,11 @@ public class User {
         this.username = username;
     }
 
-    public List<Review> getReviews() {
+    public List<String>  getReviews() {
         return reviews;
     }
 
-    public void setReviews(List<Review> reviews) {
+    public void setReviews(List<String>  reviews) {
         this.reviews = reviews;
     }
 }

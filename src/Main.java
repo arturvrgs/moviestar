@@ -12,6 +12,7 @@ import service.ReviewService;
 import service.UserService;
 
 import java.io.File;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -28,14 +29,42 @@ public class Main {
         UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
 
-        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE);
+        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService, movieService);
         ReviewService reviewService = new ReviewService(reviewRepository);
         ReviewController reviewController = new ReviewController(reviewService);
 
-        MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS);
+        MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService);
 
-        reviewController.showAllReviews();
+        Scanner scan = new Scanner(System.in);
+
+        userController.registerUser();
+
+        System.out.println("|-------------------------------------------|");
+        System.out.println("|                  MOVIESTAR                |");
+        System.out.println("|-------------------------------------------|");
+        System.out.println("|  1-[LISTAR FILMES]   2-[LISTAR REVIEWS]   |");
+        System.out.println("|                                           |");
+        System.out.println("|  3-[LISTAR USUÁRIOS] 4-[LISTAR COLEÇÕES]  |");
+        System.out.println("|-------------------------------------------|");
+        System.out.print("ESCOLHA UMA OPÇÃO: ");
+        int escolha = Integer.parseInt(scan.nextLine());
+
+        if(escolha == 1) {
+            movieController.showAllMovies();
+        }
+
+        if(escolha == 2) {
+            reviewController.showAllReviews();
+        }
+
+        if(escolha == 3) {
+            userController.showAllUsers();
+        }
+
+        if(escolha == 4) {
+            movieUserCollectionController.showAllCollections();
+        }
     }
 }

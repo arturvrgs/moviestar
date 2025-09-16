@@ -1,12 +1,14 @@
 package model.entity;
 
+import java.util.List;
+
 public class MovieUserCollection {
     private int id;
-    private int user;
-    private String[] movies;
+    private User user;
+    private List<Movie> movies;
     private String description;
 
-    public MovieUserCollection(int id, int user, String[] movies, String description) {
+    public MovieUserCollection(int id, User user, List<Movie> movies, String description) {
         this.id = id;
         this.user = user;
         this.movies = movies;
@@ -21,19 +23,19 @@ public class MovieUserCollection {
         this.id = id;
     }
 
-    public int getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public String[] getMovies() {
+    public List<Movie> getMovies() {
         return movies;
     }
 
-    public void setMovies(String[] movies) {
+    public void setMovies(List<Movie> movies) {
         this.movies = movies;
     }
 

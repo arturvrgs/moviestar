@@ -7,7 +7,7 @@ import java.util.List;
 
 
 public class UserFactory {
-    public static User createUser(int id, String username, List<Review> reviews) {
+    public static User createUser(int id, String username, List<String> reviews) {
         return new User(id, username, reviews);
     }
 }

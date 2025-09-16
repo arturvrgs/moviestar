@@ -1,15 +1,16 @@
 package controller;
 
-import model.entity.Review;
 import model.entity.User;
-import service.ReviewService;
 import service.UserService;
 import view.Display;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class UserController {
     private final UserService userService;
+
+    Scanner scan = new Scanner(System.in);
 
     public UserController(UserService userService) {
         this.userService = userService;
@@ -23,5 +24,10 @@ public class UserController {
     public void showUserById(int id) {
         User user = userService.getUserById(id);
         Display.showUserById(user);
+    }
+
+    public void registerUser() {
+        String username = Display.showUserRegisterForm(scan);
+        userService.registerUser(username);
     }
 }

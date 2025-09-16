@@ -1,7 +1,10 @@
 package repository;
 
+import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.factory.MovieUserCollectionFactory;
+import service.MovieService;
+import service.UserService;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,9 +14,13 @@ import java.util.Scanner;
 
 public class MovieUserCollectionRepository {
     private final File movieUserCollectionsFile;
+    private final UserService userService;
+    private final MovieService movieService;
 
-    public MovieUserCollectionRepository(File movieUserCollectionsFile) {
+    public MovieUserCollectionRepository(File movieUserCollectionsFile, UserService userService, MovieService movieService) {
         this.movieUserCollectionsFile = movieUserCollectionsFile;
+        this.userService = userService;
+        this.movieService = movieService;
     }
 
     public List<MovieUserCollection> getData() {
@@ -28,11 +35,17 @@ public class MovieUserCollectionRepository {
                 String linha = scanner.nextLine();
                 String[] colunas = linha.split(";");
 
-                String[] movies = colunas[2].split(",");
+                String[] moviesIDS = colunas[2].split(",");
+
+                List<Movie> movies = new ArrayList<>();
+
+                for(String movieID : moviesIDS) {
+                   movies.add(movieService.getMovieById(Integer.parseInt(movieID)));
+                }
 
                 MovieUserCollection collection = MovieUserCollectionFactory.createCollection(
                         Integer.parseInt(colunas[0]), //ID
-                        Integer.parseInt(colunas[1]), //USER
+                        userService.getUserById(Integer.parseInt(colunas[1])), //USER
                         movies, //MOVIES
                         colunas[3] //DESCRIPTION
                 );

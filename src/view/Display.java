@@ -8,6 +8,7 @@ import service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Display {
 
@@ -30,7 +31,10 @@ public class Display {
         System.out.println("--------------------------------------------------");
         System.out.println("ID: " + collection.getId());
         System.out.println("USUÁRIO: " + collection.getUser());
-        System.out.println("FILMES: " + Arrays.toString(collection.getMovies()));
+        System.out.println("FILMES: ");
+        for(Movie movie : collection.getMovies()) {
+            System.out.println(movie.getTitle());
+        }
         System.out.println("--------------------------------------------------");
     }
 
@@ -48,10 +52,7 @@ public class Display {
         System.out.println("USUÁRIO: " + user.getUsername());
         System.out.println("--------------------------------------------------");
         System.out.println("ID: " + user.getId());
-        System.out.println("REVIEWS: ");
-        for (Review review : user.getReviews()) {
-            System.out.println(review.getMovie());
-        }
+        System.out.println("REVIEWS: " + user.getReviews());
         System.out.println("--------------------------------------------------");
     }
 
@@ -88,10 +89,7 @@ public class Display {
             System.out.println("USUÁRIO: " + user.getUsername());
             System.out.println("--------------------------------------------------");
             System.out.println("ID: " + user.getId());
-            System.out.println("REVIEWS: ");
-            for (Review review : user.getReviews()) {
-                System.out.println(review.getMovie());
-            }
+            System.out.println("REVIEWS: " + user.getReviews());
             System.out.println("--------------------------------------------------");
         }
     }
@@ -101,9 +99,27 @@ public class Display {
             System.out.println("COLEÇÃO: " + collection.getDescription());
             System.out.println("--------------------------------------------------");
             System.out.println("ID: " + collection.getId());
-            System.out.println("USUÁRIO: ");
-            System.out.println("FILMES: " + Arrays.toString(collection.getMovies()));
-            System.out.println("--------------------------------------------------");
+            System.out.println("USUÁRIO: " + collection.getUser().getUsername());
+            System.out.print("FILMES: ");
+            for(Movie movie : collection.getMovies()) {
+                System.out.print("[" + movie.getTitle() + "]");
+            }
+            System.out.println("\n--------------------------------------------------");
         }
+    }
+
+    public static String showUserRegisterForm(Scanner scan) {
+
+        System.out.println("|-------------------------------------------|");
+        System.out.println("|                  MOVIESTAR                |");
+        System.out.println("|-------------------------------------------|");
+        System.out.println("|  DIGITE SEU USERNAME:                     |");
+        System.out.println("|-------------------------------------------|");
+
+        return scan.nextLine();
+    }
+
+    public static int mainMenu() {
+
     }
 }

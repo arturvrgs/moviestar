@@ -14,18 +14,16 @@ import java.util.Scanner;
 public class ReviewRepository {
 
     private final File reviewsFile;
+    private final UserService userService;
+    private final MovieService movieService;
 
-    public ReviewRepository(File reviewsFile) {
+    public ReviewRepository(File reviewsFile, UserService userService, MovieService movieService) {
         this.reviewsFile = reviewsFile;
+        this.userService = userService;
+        this.movieService = movieService;
     }
 
     public List<Review> getData() {
-
-        UserRepository userRepository = new UserRepository(new File("data/users.txt"));
-        UserService userService = new UserService(userRepository);
-
-        MovieRepository movieRepository = new MovieRepository(new File("data/movies.txt"));
-        MovieService movieService = new MovieService(movieRepository);
 
         List<Review> reviews = new ArrayList<>();
 
