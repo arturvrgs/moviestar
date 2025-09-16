@@ -17,13 +17,11 @@ public class UserService {
     }
 
     public User getUserById(int id) {
-
         for(User user : getAllUsers()) {
             if(user.getId() == id) {
                 return user;
             }
         }
-
         return null;
     }
 }

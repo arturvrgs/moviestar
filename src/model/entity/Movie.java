@@ -1,5 +1,7 @@
 package model.entity;
 
+import java.sql.SQLOutput;
+
 public class Movie {
 
     private int id;

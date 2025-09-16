@@ -1,12 +1,14 @@
 package model.entity;
 
+import java.util.List;
+
 public class User {
 
     private int id;
     private String username;
-    private String[] reviews;
+    private List<Review> reviews;
 
-    public User(int id, String username, String[] reviews) {
+    public User(int id, String username, List<Review> reviews) {
         this.id = id;
         this.username = username;
         this.reviews = reviews;
@@ -28,11 +30,11 @@ public class User {
         this.username = username;
     }
 
-    public String[] getReviews() {
+    public List<Review> getReviews() {
         return reviews;
     }
 
-    public void setReviews(String[] reviews) {
+    public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
 }

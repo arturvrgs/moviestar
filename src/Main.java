@@ -15,7 +15,6 @@ import java.io.File;
 
 public class Main {
     public static void main(String[] args) {
-
         File MOVIES_FILE = new File("data/movies.txt");
         File REVIEWS_FILE = new File("data/reviews.txt");
         File USERS_FILE = new File("data/users.txt");
@@ -25,21 +24,18 @@ public class Main {
         MovieService movieService = new MovieService(movieRepository);
         MovieController movieController = new MovieController(movieService);
 
-        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE);
-        ReviewService reviewService = new ReviewService(reviewRepository);
-        ReviewController reviewController = new ReviewController(reviewService);
-
         UserRepository userRepository = new UserRepository(USERS_FILE);
         UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
+
+        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE);
+        ReviewService reviewService = new ReviewService(reviewRepository);
+        ReviewController reviewController = new ReviewController(reviewService);
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService);
 
-        movieUserCollectionController.showAllCollections();
-        userController.showAllUsers();
         reviewController.showAllReviews();
-        movieController.showAllMovies();
     }
 }

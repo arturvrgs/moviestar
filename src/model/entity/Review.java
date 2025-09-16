@@ -3,13 +3,13 @@ package model.entity;
 public class Review {
 
     private int id;
-    private int user;
-    private int movie;
+    private User user;
+    private Movie movie;
     private int stars;
     private String comment;
     private String publishDate;
 
-    public Review(int id, int user, int movie, int stars, String comment, String publishDate) {
+    public Review(int id, User user, Movie movie, int stars, String comment, String publishDate) {
         this.id = id;
         this.user = user;
         this.movie = movie;
@@ -18,19 +18,19 @@ public class Review {
         this.publishDate = publishDate;
     }
 
-    public int getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(int user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
-    public int getMovie() {
+    public Movie getMovie() {
         return movie;
     }
 
-    public void setMovie(int movie) {
+    public void setMovie(Movie movie) {
         this.movie = movie;
     }
 

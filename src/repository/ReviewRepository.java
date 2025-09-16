@@ -2,6 +2,9 @@ package repository;
 
 import model.entity.Review;
 import model.factory.ReviewFactory;
+import service.MovieService;
+import service.UserService;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -18,6 +21,12 @@ public class ReviewRepository {
 
     public List<Review> getData() {
 
+        UserRepository userRepository = new UserRepository(new File("data/users.txt"));
+        UserService userService = new UserService(userRepository);
+
+        MovieRepository movieRepository = new MovieRepository(new File("data/movies.txt"));
+        MovieService movieService = new MovieService(movieRepository);
+
         List<Review> reviews = new ArrayList<>();
 
         try (Scanner scanner = new Scanner(reviewsFile)) {
@@ -31,8 +40,8 @@ public class ReviewRepository {
 
                 Review review = ReviewFactory.createReview(
                         Integer.parseInt(colunas[0]), // id
-                        Integer.parseInt(colunas[1]), // user
-                        Integer.parseInt(colunas[2]), // movie
+                        userService.getUserById(Integer.parseInt(colunas[1])), // user
+                        movieService.getMovieById(Integer.parseInt(colunas[2])), // movie
                         Integer.parseInt(colunas[3]), // stars
                         colunas[4],                   // comment
                         colunas[5]                    // publishDate

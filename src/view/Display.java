@@ -4,6 +4,8 @@ import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
+import service.UserService;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -35,8 +37,8 @@ public class Display {
     public static void showReviewById(Review review) {
         System.out.println("REVIEW: " + review.getId());
         System.out.println("--------------------------------------------------");
-        System.out.println("USUÁRIO: " + review.getUser());
-        System.out.println("FILME: " + review.getMovie());
+        System.out.println("USUÁRIO: " + review.getUser().getUsername());
+        System.out.println("FILME: " + review.getMovie().getTitle());
         System.out.println("COMENTÁRIO: " + review.getComment());
         System.out.println("DATA DE PUBLICAÇÃO: " + review.getPublishDate());
         System.out.println("--------------------------------------------------");
@@ -46,7 +48,10 @@ public class Display {
         System.out.println("USUÁRIO: " + user.getUsername());
         System.out.println("--------------------------------------------------");
         System.out.println("ID: " + user.getId());
-        System.out.println("REVIEWS: " + Arrays.toString(user.getReviews()));
+        System.out.println("REVIEWS: ");
+        for (Review review : user.getReviews()) {
+            System.out.println(review.getMovie());
+        }
         System.out.println("--------------------------------------------------");
     }
 
@@ -70,8 +75,8 @@ public class Display {
         for(Review review : reviews) {
             System.out.println("REVIEW: " + review.getId());
             System.out.println("--------------------------------------------------");
-            System.out.println("USUÁRIO: " + review.getUser());
-            System.out.println("FILME: " + review.getMovie());
+            System.out.println("USUÁRIO: " + review.getUser().getUsername());
+            System.out.println("FILME: " + review.getMovie().getTitle());
             System.out.println("COMENTÁRIO: " + review.getComment());
             System.out.println("DATA DE PUBLICAÇÃO: " + review.getPublishDate());
             System.out.println("--------------------------------------------------");
@@ -83,7 +88,10 @@ public class Display {
             System.out.println("USUÁRIO: " + user.getUsername());
             System.out.println("--------------------------------------------------");
             System.out.println("ID: " + user.getId());
-            System.out.println("REVIEWS: " + Arrays.toString(user.getReviews()));
+            System.out.println("REVIEWS: ");
+            for (Review review : user.getReviews()) {
+                System.out.println(review.getMovie());
+            }
             System.out.println("--------------------------------------------------");
         }
     }
@@ -93,7 +101,7 @@ public class Display {
             System.out.println("COLEÇÃO: " + collection.getDescription());
             System.out.println("--------------------------------------------------");
             System.out.println("ID: " + collection.getId());
-            System.out.println("USUÁRIO: " + collection.getUser());
+            System.out.println("USUÁRIO: ");
             System.out.println("FILMES: " + Arrays.toString(collection.getMovies()));
             System.out.println("--------------------------------------------------");
         }

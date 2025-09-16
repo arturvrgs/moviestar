@@ -1,7 +1,10 @@
 package service;
 
 import model.entity.Movie;
+import model.entity.Review;
 import repository.MovieRepository;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class MovieService {
@@ -17,13 +20,11 @@ public class MovieService {
     }
 
     public Movie getMovieById(int id) {
-
         for(Movie movie : getAllMovies()) {
             if(movie.getId() == id) {
                 return movie;
             }
         }
-
         return null;
     }
 }

@@ -3,6 +3,7 @@ package controller;
 import model.entity.Movie;
 import model.entity.Review;
 import service.ReviewService;
+import service.UserService;
 import view.Display;
 
 import java.util.List;
