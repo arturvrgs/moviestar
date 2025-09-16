@@ -40,31 +40,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         userController.registerUser();
+        userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
 
-        System.out.println("|-------------------------------------------|");
-        System.out.println("|                  MOVIESTAR                |");
-        System.out.println("|-------------------------------------------|");
-        System.out.println("|  1-[LISTAR FILMES]   2-[LISTAR REVIEWS]   |");
-        System.out.println("|                                           |");
-        System.out.println("|  3-[LISTAR USUÁRIOS] 4-[LISTAR COLEÇÕES]  |");
-        System.out.println("|-------------------------------------------|");
-        System.out.print("ESCOLHA UMA OPÇÃO: ");
-        int escolha = Integer.parseInt(scan.nextLine());
-
-        if(escolha == 1) {
-            movieController.showAllMovies();
-        }
-
-        if(escolha == 2) {
-            reviewController.showAllReviews();
-        }
-
-        if(escolha == 3) {
-            userController.showAllUsers();
-        }
-
-        if(escolha == 4) {
-            movieUserCollectionController.showAllCollections();
-        }
     }
 }

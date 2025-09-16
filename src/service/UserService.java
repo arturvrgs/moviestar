@@ -1,5 +1,9 @@
 package service;
 
+import controller.MovieController;
+import controller.MovieUserCollectionController;
+import controller.ReviewController;
+import controller.UserController;
 import model.entity.Review;
 import model.entity.User;
 import model.factory.UserFactory;
@@ -36,5 +40,27 @@ public class UserService {
             User user = UserFactory.createUser(id, username, reviews);
 
             userRepository.save(user);
+    }
+
+    public void menuOption(
+            int option, MovieController movieController, ReviewController reviewController,
+            UserController userController, MovieUserCollectionController movieUserCollectionController
+    ) {
+
+            if(option == 1) {
+            movieController.showAllMovies();
+        }
+
+        if(option == 2) {
+            reviewController.showAllReviews();
+        }
+
+        if(option == 3) {
+            userController.showAllUsers();
+        }
+
+        if(option == 4) {
+            movieUserCollectionController.showAllCollections();
+        }
     }
 }

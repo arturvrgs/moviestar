@@ -30,4 +30,15 @@ public class UserController {
         String username = Display.showUserRegisterForm(scan);
         userService.registerUser(username);
     }
+
+    public void menuOption(
+            MovieController movieController, ReviewController reviewController,
+            UserController userController, MovieUserCollectionController movieUserCollectionController
+    ) {
+
+        String username = userService.getAllUsers().getFirst().getUsername();
+
+        int option = Display.showMainMenu(scan, username);
+        userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController);
+    }
 }

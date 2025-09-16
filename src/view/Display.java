@@ -119,7 +119,18 @@ public class Display {
         return scan.nextLine();
     }
 
-    public static int mainMenu() {
+    public static int showMainMenu(Scanner scan, String username) {
+        System.out.println("|----------------------------------------------------------------------|");
+        System.out.println("|                                MOVIESTAR                             |");
+        System.out.println("|----------------------------------------------------------------------|");
+         System.out.printf("   Bem-vindo, %s                                                      \n", username);
+        System.out.println("|----------------------------------------------------------------------|");
+        System.out.println("|   1-[LISTAR FILMES]               2-[LISTAR REVIEWS]                 |");
+        System.out.println("|                                                                      |");
+        System.out.println("|   3-[LISTAR USUÁRIOS]            4-[LISTAR COLEÇÕES]                 |");
+        System.out.println("|----------------------------------------------------------------------|");
+        System.out.print("ESCOLHA UMA OPÇÃO: ");
 
+        return Integer.parseInt(scan.nextLine());
     }
 }
