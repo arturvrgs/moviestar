@@ -20,7 +20,7 @@ public class UserService {
     }
 
     public List<User> getAllUsers() {
-        return userRepository.getData();
+        return userRepository.getUsers();
     }
 
     public User getUserById(int id) {
@@ -34,7 +34,7 @@ public class UserService {
 
     public void registerUser(String username) {
 
-            int id = getAllUsers().getLast().getId() + 1;
+            int id = userRepository.getUsers().getLast().getId() + 1;
             List<String> reviews = new ArrayList<>();
 
             User user = UserFactory.createUser(id, username, reviews);

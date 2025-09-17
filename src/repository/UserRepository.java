@@ -19,6 +19,7 @@ public class UserRepository {
 
     public UserRepository(File usersFile) {
         this.usersFile = usersFile;
+        getData();
     }
 
     public List<User> getData() {
@@ -51,7 +52,10 @@ public class UserRepository {
     }
 
     public void save(User user) {
-        users.clear();
         users.add(user);
+    }
+
+    public List<User> getUsers() {
+        return users;
     }
 }

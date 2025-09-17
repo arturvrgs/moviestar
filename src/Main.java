@@ -12,7 +12,6 @@ import service.ReviewService;
 import service.UserService;
 
 import java.io.File;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -37,10 +36,7 @@ public class Main {
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService);
 
-        Scanner scan = new Scanner(System.in);
-
         userController.registerUser();
         userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
-
     }
 }

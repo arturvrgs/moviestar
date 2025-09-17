@@ -2,6 +2,7 @@ package repository;
 
 import model.entity.Movie;
 import model.entity.MovieUserCollection;
+import model.entity.User;
 import model.factory.MovieUserCollectionFactory;
 import service.MovieService;
 import service.UserService;
@@ -16,11 +17,13 @@ public class MovieUserCollectionRepository {
     private final File movieUserCollectionsFile;
     private final UserService userService;
     private final MovieService movieService;
+    private final List<MovieUserCollection> collections = new ArrayList<>();
 
     public MovieUserCollectionRepository(File movieUserCollectionsFile, UserService userService, MovieService movieService) {
         this.movieUserCollectionsFile = movieUserCollectionsFile;
         this.userService = userService;
         this.movieService = movieService;
+        getData();
     }
 
     public List<MovieUserCollection> getData() {
@@ -56,6 +59,10 @@ public class MovieUserCollectionRepository {
             throw new RuntimeException(e);
         }
 
+        return collections;
+    }
+
+    public List<MovieUserCollection> getCollections() {
         return collections;
     }
 }

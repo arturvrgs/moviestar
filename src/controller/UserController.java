@@ -36,7 +36,7 @@ public class UserController {
             UserController userController, MovieUserCollectionController movieUserCollectionController
     ) {
 
-        String username = userService.getAllUsers().getFirst().getUsername();
+        String username = userService.getAllUsers().getLast().getUsername();
 
         int option = Display.showMainMenu(scan, username);
         userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController);

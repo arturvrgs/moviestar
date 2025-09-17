@@ -1,6 +1,7 @@
 package repository;
 
 import model.entity.Review;
+import model.entity.User;
 import model.factory.ReviewFactory;
 import service.MovieService;
 import service.UserService;
@@ -16,11 +17,13 @@ public class ReviewRepository {
     private final File reviewsFile;
     private final UserService userService;
     private final MovieService movieService;
+    private final List<Review> reviews = new ArrayList<>();
 
     public ReviewRepository(File reviewsFile, UserService userService, MovieService movieService) {
         this.reviewsFile = reviewsFile;
         this.userService = userService;
         this.movieService = movieService;
+        getData();
     }
 
     public List<Review> getData() {
@@ -51,6 +54,10 @@ public class ReviewRepository {
             throw new RuntimeException(e);
         }
 
+        return reviews;
+    }
+
+    public List<Review> getReviews() {
         return reviews;
     }
 }

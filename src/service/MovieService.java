@@ -1,5 +1,6 @@
 package service;
 
+import controller.MovieController;
 import model.entity.Movie;
 import model.entity.Review;
 import repository.MovieRepository;

@@ -5,10 +5,13 @@ import service.MovieService;
 import view.Display;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class MovieController {
 
     private final MovieService movieService;
+
+    Scanner scan = new Scanner(System.in);
 
     public MovieController(MovieService movieService) {
         this.movieService = movieService;
@@ -16,7 +19,9 @@ public class MovieController {
 
     public void showAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
-        Display.showAllMovies(movies);
+        int id = Display.showAllMovies(scan, movies);
+
+        showMovieById(id);
     }
 
     public void showMovieById(int id) {

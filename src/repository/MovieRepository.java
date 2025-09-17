@@ -1,6 +1,7 @@
 package repository;
 
 import model.entity.Movie;
+import model.entity.User;
 import model.factory.MovieFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,9 +12,11 @@ import java.util.Scanner;
 public class MovieRepository {
 
     private final File moviesFile;
+    private final List<Movie> movies = new ArrayList<>();
 
     public MovieRepository(File moviesFile) {
         this.moviesFile = moviesFile;
+        getData();
     }
 
     public List<Movie> getData() {
@@ -48,6 +51,10 @@ public class MovieRepository {
             throw new RuntimeException(e);
         }
 
+        return movies;
+    }
+
+    public List<Movie> getMovies() {
         return movies;
     }
 }
