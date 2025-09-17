@@ -1,11 +1,7 @@
 package service;
 
-import controller.MovieController;
 import model.entity.Movie;
-import model.entity.Review;
 import repository.MovieRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class MovieService {

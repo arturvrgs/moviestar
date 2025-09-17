@@ -1,15 +1,16 @@
 package controller;
 
-import model.entity.Movie;
 import model.entity.Review;
 import service.ReviewService;
-import service.UserService;
 import view.Display;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class ReviewController {
     private final ReviewService reviewService;
+
+    Scanner scan = new Scanner(System.in);
 
     public ReviewController(ReviewService reviewService) {
         this.reviewService = reviewService;
@@ -17,7 +18,8 @@ public class ReviewController {
 
     public void showAllReviews() {
         List<Review> reviews = reviewService.getAllReviews();
-        Display.showAllReviews(reviews);
+        int id =  Display.showAllReviews(scan, reviews);
+        showReviewById(id);
     }
 
     public void showReviewById(int id) {

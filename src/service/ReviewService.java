@@ -17,13 +17,11 @@ public class ReviewService {
     }
 
     public Review getReviewById(int id) {
-
         for(Review review : getAllReviews()) {
             if(review.getId() == id) {
                 return review;
             }
         }
-
         return null;
     }
 }

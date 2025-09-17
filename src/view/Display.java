@@ -4,7 +4,6 @@ import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
-import service.UserService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +41,7 @@ public class Display {
 
     public static void showReviewById(Review review) {
         flushDisplay();
-        System.out.println("REVIEW: " + review.getId());
+        System.out.println("REVIEW");
         System.out.println("--------------------------------------------------");
         System.out.println("USUÁRIO: " + review.getUser().getUsername());
         System.out.println("FILME: " + review.getMovie().getTitle());
@@ -66,31 +65,21 @@ public class Display {
             System.out.println("FILME: [" + movie.getTitle() + "]");
             System.out.println("DIGITE [" + movie.getId() + "] PARA [VER MAIS ->]");
             System.out.println("--------------------------------------------------");
-//            System.out.println("ID: " + movie.getId());
-//            System.out.println("LINGUAGEM: " + movie.getLanguage());
-//            System.out.println("DIRETOR: " + movie.getDirector());
-//            System.out.println("GÊNEROS: " + Arrays.toString(movie.getGenres()));
-//            System.out.println("QUANTIDADE DE REVIEWS: " + movie.getTotalReviews());
-//            System.out.println("MÉDIA DE ESTRELAS: " + movie.getStars());
-//            System.out.println("ANO DE LANÇAMENTO: " + movie.getReleaseYear());
-//            System.out.println("TEMPO DE DURAÇÃO " + movie.getRuntime() + "m");
-//            System.out.println("--------------------------------------------------");
         }
 
         return Integer.parseInt(scan.nextLine());
     }
 
-    public static void showAllReviews(List<Review> reviews) {
+    public static int showAllReviews(Scanner scan, List<Review> reviews) {
         flushDisplay();
         for(Review review : reviews) {
-            System.out.println("REVIEW: " + review.getId());
-            System.out.println("--------------------------------------------------");
-            System.out.println("USUÁRIO: " + review.getUser().getUsername());
-            System.out.println("FILME: " + review.getMovie().getTitle());
-            System.out.println("COMENTÁRIO: " + review.getComment());
-            System.out.println("DATA DE PUBLICAÇÃO: " + review.getPublishDate());
+            System.out.println("REVIEW: [Filme: " + review.getMovie().getTitle() + "]");
+            System.out.println("        [Autor(a): " + review.getUser().getUsername() + "]");
+            System.out.println();
+            System.out.println("DIGITE [" + review.getId() + "] PARA [VER MAIS ->]");
             System.out.println("--------------------------------------------------");
         }
+        return Integer.parseInt(scan.nextLine());
     }
 
     public static void showAllUsers(List<User> users) {
