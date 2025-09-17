@@ -26,4 +26,9 @@ public class ReviewController {
         Review review = reviewService.getReviewById(id);
         Display.showReviewById(review);
     }
+
+    public void showReviewForm(String movieTitle) {
+        String[] reviewInfo = Display.showReviewForm(scan, movieTitle);
+        reviewService.createReview(reviewInfo);
+    }
 }

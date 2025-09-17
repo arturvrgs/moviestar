@@ -26,6 +26,10 @@ public class MovieController {
 
     public void showMovieById(int id) {
         Movie movie = movieService.getMovieById(id);
-        Display.showMovieById(movie);
+        int option = Display.showMovieById(scan, movie);
+
+        if(option == 1) {
+            Display.showReviewForm(scan, movie.getTitle());
+        }
     }
 }

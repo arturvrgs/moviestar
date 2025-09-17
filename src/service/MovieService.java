@@ -1,12 +1,16 @@
 package service;
 
 import model.entity.Movie;
+import model.entity.Review;
 import repository.MovieRepository;
+import repository.ReviewRepository;
+
 import java.util.List;
 
 public class MovieService {
 
     private final MovieRepository movieRepository;
+    private ReviewRepository reviewRepository;
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;

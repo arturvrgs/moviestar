@@ -9,17 +9,16 @@ public class Movie {
     private String language;
     private String director;
     private String[] genres;
-    private int totalReviews, stars, releaseYear;
+    private int releaseYear;
     private int runtime;
 
     public Movie(
                 int id, String title, String language,
-                String director, String[] genres, int totalReviews,
-                int stars, int releaseYear, int runtime
+                String director, String[] genres,
+                int releaseYear, int runtime
     ) {
         this.runtime = runtime;
         this.releaseYear = releaseYear;
-        this.totalReviews = totalReviews;
         this.genres = genres;
         this.director = director;
         this.title = title;
@@ -65,22 +64,6 @@ public class Movie {
 
     public void setGenres(String[] genres) {
         this.genres = genres;
-    }
-
-    public int getTotalReviews() {
-        return totalReviews;
-    }
-
-    public void setTotalReviews(int totalReviews) {
-        this.totalReviews = totalReviews;
-    }
-
-    public int getStars() {
-        return stars;
-    }
-
-    public void setStars(int stars) {
-        this.stars = stars;
     }
 
     public int getReleaseYear() {

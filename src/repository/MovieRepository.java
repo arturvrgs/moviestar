@@ -1,6 +1,7 @@
 package repository;
 
 import model.entity.Movie;
+import model.entity.Review;
 import model.entity.User;
 import model.factory.MovieFactory;
 import java.io.File;
@@ -13,6 +14,7 @@ public class MovieRepository {
 
     private final File moviesFile;
     private final List<Movie> movies = new ArrayList<>();
+    private ReviewRepository reviewRepository;
 
     public MovieRepository(File moviesFile) {
         this.moviesFile = moviesFile;
@@ -39,10 +41,8 @@ public class MovieRepository {
                         colunas[2], //LANGUAGE
                         colunas[3], //DIRECTOR
                         genres, //GENRES
-                        Integer.parseInt(colunas[5]), //TOTAL REVIEWS
-                        Integer.parseInt(colunas[6]), //STARS
-                        Integer.parseInt(colunas[7]), //RELEASE YEAR
-                        Integer.parseInt(colunas[8]) //RUNTIME (IN MINUTES)
+                        Integer.parseInt(colunas[5]), //RELEASE YEAR
+                        Integer.parseInt(colunas[6]) //RUNTIME (IN MINUTES)
                 );
 
                 movies.add(movie);

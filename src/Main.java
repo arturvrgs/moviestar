@@ -28,8 +28,8 @@ public class Main {
         UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
 
-        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService, movieService);
-        ReviewService reviewService = new ReviewService(reviewRepository);
+        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService);
+        ReviewService reviewService = new ReviewService(reviewRepository, userRepository);
         ReviewController reviewController = new ReviewController(reviewService);
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);

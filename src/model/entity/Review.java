@@ -4,12 +4,12 @@ public class Review {
 
     private int id;
     private User user;
-    private Movie movie;
+    private String movie;
     private int stars;
     private String comment;
     private String publishDate;
 
-    public Review(int id, User user, Movie movie, int stars, String comment, String publishDate) {
+    public Review(int id, User user, String movie, int stars, String comment, String publishDate) {
         this.id = id;
         this.user = user;
         this.movie = movie;
@@ -26,11 +26,11 @@ public class Review {
         this.user = user;
     }
 
-    public Movie getMovie() {
+    public String getMovie() {
         return movie;
     }
 
-    public void setMovie(Movie movie) {
+    public void setMovie(String movie) {
         this.movie = movie;
     }
 

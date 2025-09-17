@@ -6,7 +6,7 @@ import model.entity.User;
 
 public class ReviewFactory {
     public static Review createReview(
-            int id, User user, Movie movie, int stars, String comment, String publishDate
+            int id, User user, String movie, int stars, String comment, String publishDate
     ) {
         return new Review(id, user, movie, stars, comment, publishDate);
     }

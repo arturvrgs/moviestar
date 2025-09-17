@@ -16,13 +16,11 @@ public class ReviewRepository {
 
     private final File reviewsFile;
     private final UserService userService;
-    private final MovieService movieService;
     private final List<Review> reviews = new ArrayList<>();
 
-    public ReviewRepository(File reviewsFile, UserService userService, MovieService movieService) {
+    public ReviewRepository(File reviewsFile, UserService userService) {
         this.reviewsFile = reviewsFile;
         this.userService = userService;
-        this.movieService = movieService;
         getData();
     }
 
@@ -42,7 +40,7 @@ public class ReviewRepository {
                 Review review = ReviewFactory.createReview(
                         Integer.parseInt(colunas[0]), // id
                         userService.getUserById(Integer.parseInt(colunas[1])), // user
-                        movieService.getMovieById(Integer.parseInt(colunas[2])), // movie
+                        colunas[2], // movie
                         Integer.parseInt(colunas[3]), // stars
                         colunas[4],                   // comment
                         colunas[5]                    // publishDate
@@ -55,6 +53,11 @@ public class ReviewRepository {
         }
 
         return reviews;
+    }
+
+    public void save(Review review) {
+        reviews.add(review);
+        //System.out.println("Review criada: " + review.getId() + ", Filme: " + review.getMovie() + ", Estrelas: " + review.getStars() + ", Comentário: " + review.getComment());
     }
 
     public List<Review> getReviews() {
