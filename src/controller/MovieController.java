@@ -10,11 +10,13 @@ import java.util.Scanner;
 public class MovieController {
 
     private final MovieService movieService;
+    private final ReviewController reviewController;
 
     Scanner scan = new Scanner(System.in);
 
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, ReviewController reviewController) {
         this.movieService = movieService;
+        this.reviewController = reviewController;
     }
 
     public void showAllMovies() {
@@ -29,7 +31,7 @@ public class MovieController {
         int option = Display.showMovieById(scan, movie);
 
         if(option == 1) {
-            Display.showReviewForm(scan, movie.getTitle());
+            reviewController.showReviewForm(movie.getTitle());
         }
     }
 }

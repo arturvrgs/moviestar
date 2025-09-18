@@ -26,8 +26,6 @@ public class ReviewRepository {
 
     public List<Review> getData() {
 
-        List<Review> reviews = new ArrayList<>();
-
         try (Scanner scanner = new Scanner(reviewsFile)) {
 
             //pula a primeira linha
@@ -57,7 +55,6 @@ public class ReviewRepository {
 
     public void save(Review review) {
         reviews.add(review);
-        //System.out.println("Review criada: " + review.getId() + ", Filme: " + review.getMovie() + ", Estrelas: " + review.getStars() + ", Comentário: " + review.getComment());
     }
 
     public List<Review> getReviews() {

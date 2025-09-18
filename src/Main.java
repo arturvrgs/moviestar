@@ -22,7 +22,7 @@ public class Main {
 
         MovieRepository movieRepository = new MovieRepository(MOVIES_FILE);
         MovieService movieService = new MovieService(movieRepository);
-        MovieController movieController = new MovieController(movieService);
+
 
         UserRepository userRepository = new UserRepository(USERS_FILE);
         UserService userService = new UserService(userRepository);
@@ -31,12 +31,15 @@ public class Main {
         ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService);
         ReviewService reviewService = new ReviewService(reviewRepository, userRepository);
         ReviewController reviewController = new ReviewController(reviewService);
+        MovieController movieController = new MovieController(movieService, reviewController);
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService);
 
+
         userController.registerUser();
+
         userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
     }
 }

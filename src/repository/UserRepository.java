@@ -55,6 +55,13 @@ public class UserRepository {
         users.add(user);
     }
 
+    public void saveUserReview(Review review) {
+        User user = users.getLast();
+        List<String> reviews = user.getReviews();
+        reviews.add(String.valueOf(review.getId()));
+        user.setReviews(reviews);
+    }
+
     public List<User> getUsers() {
         return users;
     }
