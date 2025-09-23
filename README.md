@@ -1,20 +1,19 @@
-﻿# 🎬 Moviestar
+﻿# Moviestar
 
 Sistema Java de console para gerenciamento de filmes, avaliações e coleções pessoais.
 
-## 📋 Sobre o Projeto
+## Sobre o Projeto
 
 Moviestar começou como um trabalho da disciplina de Programação Orientada a Objetos, mas se expandiu em um projeto pessoal mais completo. É um sistema de gerenciamento de filmes desenvolvido em Java que permite visualizar catálogos, criar avaliações, gerenciar coleções e interagir com usuários. Utiliza arquivos de texto para persistência e interface de console.
 
-## ✨ Funcionalidades
+## Funcionalidades
 
-- 🎭 **Catálogo de Filmes**: Visualize uma biblioteca completa com detalhes dos filmes
-- ⭐ **Sistema de Reviews**: Crie e visualize avaliações com comentários e classificação por estrelas
-- 👥 **Gerenciamento de Usuários**: Sistema de registro e perfis de usuário
-- 📚 **Coleções Personalizadas**: Crie e gerencie listas temáticas de filmes
-- 🔍 **Navegação Intuitiva**: Interface de console com menus organizados
+-  **Catálogo de Filmes**: Visualize uma biblioteca completa com detalhes dos filmes
+-  **Sistema de Reviews**: Crie e visualize avaliações com comentários e classificação por estrelas
+-  **Gerenciamento de Usuários**: Sistema de registro e perfis de usuário
+-  **Coleções Personalizadas**: Crie e gerencie listas temáticas de filmes
 
-## 🏗️ Arquitetura do Projeto
+## Arquitetura do Projeto
 
 O projeto segue o padrão **MVC (Model-View-Controller)** com camadas bem definidas:
 
@@ -35,7 +34,7 @@ data/                  # Arquivos de dados
 └── movie_user_collections.txt
 ```
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 - **Linguagem**: Java 24
 - **IDE**: IntelliJ IDEA
@@ -44,7 +43,7 @@ data/                  # Arquivos de dados
 - **Persistência**: Arquivos de texto (CSV-like)
 - **Build System**: Projeto Java padrão
 
-## 📂 Estrutura de Dados
+## Estrutura de Dados
 
 ### Filmes (movies.txt)
 ```
@@ -66,7 +65,7 @@ id;user;movie;stars;comment;publishDate;
 id;user;movies;description;
 ```
 
-## 🚀 Como Executar o Projeto
+## Como Executar o Projeto
 
 ### Pré-requisitos
 
@@ -97,7 +96,7 @@ id;user;movies;description;
     - Clique no botão "Run" ou pressione `Ctrl+Shift+F10`
     - O programa será executado no console
 
-## ⚠️ Limitações Conhecidas
+## Limitações Conhecidas
 
 ### Persistência de Dados
 - **Arquivos TXT**: Os dados são armazenados em arquivos de texto simples, sem transações ou controle de concorrência
@@ -109,7 +108,7 @@ id;user;movies;description;
 - **Usuário ativo fixo**: O sistema sempre usa o último usuário registrado
 
 
-## 🔧 Funcionalidades Técnicas
+## Funcionalidades Técnicas
 
 ### Padrões Implementados
 
@@ -125,7 +124,7 @@ id;user;movies;description;
 - Relacionamentos entre entidades
 - Validação básica de entrada do usuário
 
-## 🤝 Contribuindo
+## Contribuindo
 
 Contribuições são bem-vindas! Para contribuir:
 
@@ -135,4 +134,5 @@ Contribuições são bem-vindas! Para contribuir:
 4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
 
 5. Abra um Pull Request
+
 
