@@ -34,10 +34,11 @@ public class ReviewService {
         Review review = ReviewFactory.createReview(id, user, movieTitle, stars, comment, publishDate);
 
         reviewRepository.save(review);
+        userRepository.saveUserReview(review);
     }
 
     public List<Review> getAllReviews() {
-        return reviewRepository.getData();
+        return reviewRepository.getReviews();
     }
 
     public Review getReviewById(int id) {

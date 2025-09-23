@@ -1,8 +1,6 @@
 package repository;
 
 import model.entity.Movie;
-import model.entity.Review;
-import model.entity.User;
 import model.factory.MovieFactory;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -22,8 +20,6 @@ public class MovieRepository {
     }
 
     public List<Movie> getData() {
-
-        List<Movie> movies = new ArrayList<>();
 
         try (Scanner scanner = new Scanner(moviesFile)) {
 

@@ -13,7 +13,7 @@ public class MovieUserCollectionService {
     }
 
     public List<MovieUserCollection> getAllCollections() {
-        return movieUserCollectionRepository.getData();
+        return movieUserCollectionRepository.getCollections();
     }
 
     public MovieUserCollection getCollectionById(int id) {

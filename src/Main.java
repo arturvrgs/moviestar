@@ -23,23 +23,23 @@ public class Main {
         MovieRepository movieRepository = new MovieRepository(MOVIES_FILE);
         MovieService movieService = new MovieService(movieRepository);
 
-
-        UserRepository userRepository = new UserRepository(USERS_FILE);
+        UserRepository userRepository = new UserRepository(USERS_FILE, movieService);
         UserService userService = new UserService(userRepository);
         UserController userController = new UserController(userService);
 
-        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService);
+        ReviewRepository reviewRepository = new ReviewRepository(REVIEWS_FILE, userService, movieService);
         ReviewService reviewService = new ReviewService(reviewRepository, userRepository);
+
         ReviewController reviewController = new ReviewController(reviewService);
-        MovieController movieController = new MovieController(movieService, reviewController);
+        MovieController movieController = new MovieController(movieService, reviewController, userController);
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService);
 
-
         userController.registerUser();
 
-        userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
+        while(true)
+            userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
     }
 }

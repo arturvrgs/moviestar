@@ -16,11 +16,14 @@ public class ReviewRepository {
 
     private final File reviewsFile;
     private final UserService userService;
+    private final MovieService movieService;
+
     private final List<Review> reviews = new ArrayList<>();
 
-    public ReviewRepository(File reviewsFile, UserService userService) {
+    public ReviewRepository(File reviewsFile, UserService userService, MovieService movieService) {
         this.reviewsFile = reviewsFile;
         this.userService = userService;
+        this.movieService = movieService;
         getData();
     }
 
@@ -38,7 +41,7 @@ public class ReviewRepository {
                 Review review = ReviewFactory.createReview(
                         Integer.parseInt(colunas[0]), // id
                         userService.getUserById(Integer.parseInt(colunas[1])), // user
-                        colunas[2], // movie
+                        movieService.getMovieById(Integer.parseInt(colunas[2])).getTitle(), // movie
                         Integer.parseInt(colunas[3]), // stars
                         colunas[4],                   // comment
                         colunas[5]                    // publishDate

@@ -2,6 +2,7 @@ package controller;
 
 import model.entity.Movie;
 import service.MovieService;
+import service.UserService;
 import view.Display;
 
 import java.util.List;
@@ -11,24 +12,36 @@ public class MovieController {
 
     private final MovieService movieService;
     private final ReviewController reviewController;
+    private final UserController userController;
 
     Scanner scan = new Scanner(System.in);
 
-    public MovieController(MovieService movieService, ReviewController reviewController) {
+    public MovieController(MovieService movieService, ReviewController reviewController, UserController userController) {
         this.movieService = movieService;
         this.reviewController = reviewController;
+        this.userController = userController;
     }
 
     public void showAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
         int id = Display.showAllMovies(scan, movies);
 
-        showMovieById(id);
+        if(id == 0) {
+            return;
+        } else {
+            showMovieById(id);
+        }
+
+
     }
 
     public void showMovieById(int id) {
         Movie movie = movieService.getMovieById(id);
         int option = Display.showMovieById(scan, movie);
+
+        if(option == 0) {
+            showAllMovies();
+        }
 
         if(option == 1) {
             reviewController.showReviewForm(movie.getTitle());

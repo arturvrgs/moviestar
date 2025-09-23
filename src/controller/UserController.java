@@ -18,7 +18,11 @@ public class UserController {
 
     public void showAllUsers() {
         List<User> users = userService.getAllUsers();
-        Display.showAllUsers(users);
+        int option = Display.showAllUsers(scan, users);
+
+        if(option == 0) {
+            return;
+        }
     }
 
     public void showUserById(int id) {

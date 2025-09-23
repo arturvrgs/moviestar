@@ -48,7 +48,7 @@ public class UserService {
     ) {
 
             if(option == 1) {
-            movieController.showAllMovies();
+                movieController.showAllMovies();
         }
 
         if(option == 2) {

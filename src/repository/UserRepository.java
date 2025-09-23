@@ -3,6 +3,7 @@ package repository;
 import model.entity.Review;
 import model.entity.User;
 import model.factory.UserFactory;
+import service.MovieService;
 import service.ReviewService;
 
 import java.io.File;
@@ -15,10 +16,11 @@ import java.util.Scanner;
 public class UserRepository {
     private final File usersFile;
     private final List<User> users = new ArrayList<>();
+    private final MovieService movieService;
 
-
-    public UserRepository(File usersFile) {
+    public UserRepository(File usersFile, MovieService movieService) {
         this.usersFile = usersFile;
+        this.movieService = movieService;
         getData();
     }
 
@@ -36,10 +38,14 @@ public class UserRepository {
 
                 String[] reviewsIDs = colunas[2].split(",");
 
+                List<String> movieTitles = new ArrayList<>();
+                movieTitles.add(movieService.getMovieById(Integer.parseInt(reviewsIDs[0])).getTitle());
+                movieTitles.add(movieService.getMovieById(Integer.parseInt(reviewsIDs[1])).getTitle());
+
                 User user = UserFactory.createUser(
                     Integer.parseInt(colunas[0]),  // id
                     colunas[1], //username
-                        new ArrayList<>(List.of(reviewsIDs))   //reviews
+                        movieTitles  //reviews
                 );
 
                 users.add(user);

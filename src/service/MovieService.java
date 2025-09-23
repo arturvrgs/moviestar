@@ -10,14 +10,13 @@ import java.util.List;
 public class MovieService {
 
     private final MovieRepository movieRepository;
-    private ReviewRepository reviewRepository;
 
     public MovieService(MovieRepository movieRepository) {
         this.movieRepository = movieRepository;
     }
 
     public List<Movie> getAllMovies() {
-        return movieRepository.getData();
+        return movieRepository.getMovies();
     }
 
     public Movie getMovieById(int id) {

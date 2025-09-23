@@ -28,8 +28,6 @@ public class MovieUserCollectionRepository {
 
     public List<MovieUserCollection> getData() {
 
-        List<MovieUserCollection> collections = new ArrayList<>();
-
         try (Scanner scanner = new Scanner(movieUserCollectionsFile)) {
 
             if (scanner.hasNextLine()) scanner.nextLine();

@@ -23,7 +23,7 @@ public class Display {
         System.out.println("TEMPO DE DURAÇÃO " + movie.getRuntime() + "m");
         System.out.println("--------------------------------------------------");
         System.out.println("DIGITE [1] PARA FAZER REVIEW");
-        System.out.println("DIGITE [2] PARA VOLTAR");
+        System.out.println("DIGITE [0] PARA VOLTAR");
 
         return Integer.parseInt(scan.nextLine());
     }
@@ -41,7 +41,7 @@ public class Display {
         System.out.println("--------------------------------------------------");
     }
 
-    public static void showReviewById(Review review) {
+    public static int showReviewById(Scanner scan, Review review) {
         flushDisplay();
         System.out.println("REVIEW");
         System.out.println("--------------------------------------------------");
@@ -50,6 +50,9 @@ public class Display {
         System.out.println("COMENTÁRIO: " + review.getComment());
         System.out.println("DATA DE PUBLICAÇÃO: " + review.getPublishDate());
         System.out.println("--------------------------------------------------");
+        System.out.println("DIGITE [0] PARA VOLTAR");
+
+        return Integer.parseInt(scan.nextLine());
     }
 
     public static void showUserById(User user) {
@@ -68,6 +71,7 @@ public class Display {
             System.out.println("DIGITE [" + movie.getId() + "] PARA [VER MAIS ->]");
             System.out.println("--------------------------------------------------");
         }
+        System.out.println("DIGITE [0] PARA VOLTAR");
 
         return Integer.parseInt(scan.nextLine());
     }
@@ -81,10 +85,11 @@ public class Display {
             System.out.println("DIGITE [" + review.getId() + "] PARA [VER MAIS ->]");
             System.out.println("--------------------------------------------------");
         }
+        System.out.println("DIGITE [0] PARA VOLTAR");
         return Integer.parseInt(scan.nextLine());
     }
 
-    public static void showAllUsers(List<User> users) {
+    public static int showAllUsers(Scanner scan, List<User> users) {
         flushDisplay();
         for(User user : users) {
             System.out.println("USUÁRIO: " + user.getUsername());
@@ -93,6 +98,9 @@ public class Display {
             System.out.println("REVIEWS: " + user.getReviews());
             System.out.println("--------------------------------------------------");
         }
+        System.out.println("DIGITE [0] PARA VOLTAR");
+
+        return Integer.parseInt(scan.nextLine());
     }
 
     public static void showAllCollections(List<MovieUserCollection> collections) {
@@ -145,12 +153,15 @@ public class Display {
         System.out.println("|----------------------------------------------------------------------|");
         System.out.println("|                                MOVIESTAR                             |");
         System.out.println("|----------------------------------------------------------------------|");
-        System.out.println("FILME: " + movieTitle);
+        System.out.println("  FILME: " + movieTitle);
         System.out.println("|----------------------------------------------------------------------|");
-        System.out.println("ESTRELAS: ");
+        System.out.println("  DIGITE A QUANTIDADE DE ESTRELAS:                                     |");
+        System.out.println("|----------------------------------------------------------------------|");
         String stars = scan.nextLine();
         reviewInfo[1] = stars;
-        System.out.println("COMENTÁRIO");
+        System.out.println("|----------------------------------------------------------------------|");
+        System.out.println("|  DIGITE SEU COMENTÁRIO:                                              |");
+        System.out.println("|----------------------------------------------------------------------|");
         String comment = scan.nextLine();
         reviewInfo[2] = comment;
         //System.out.println("Review Info: " + Arrays.toString(reviewInfo));
