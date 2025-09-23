@@ -13,7 +13,6 @@ Moviestar começou como um trabalho da disciplina de Programação Orientada a O
 - 👥 **Gerenciamento de Usuários**: Sistema de registro e perfis de usuário
 - 📚 **Coleções Personalizadas**: Crie e gerencie listas temáticas de filmes
 - 🔍 **Navegação Intuitiva**: Interface de console com menus organizados
-- 💾 **Persistência de Dados**: Armazenamento em arquivos de texto estruturados
 
 ## 🏗️ Arquitetura do Projeto
 
@@ -136,3 +135,4 @@ Contribuições são bem-vindas! Para contribuir:
 4. Push para a branch (`git push origin feature/NovaFuncionalidade`)
 
 5. Abra um Pull Request
+
