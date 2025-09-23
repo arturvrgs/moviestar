@@ -1,11 +1,8 @@
 package service;
 
-import model.entity.Movie;
 import model.entity.Review;
 import model.entity.User;
 import model.factory.ReviewFactory;
-import model.factory.UserFactory;
-import repository.MovieRepository;
 import repository.ReviewRepository;
 import repository.UserRepository;
 
