@@ -43,7 +43,5 @@ public class ReviewController {
         String[] reviewInfo = Display.showReviewForm(scan, movieTitle);
         reviewService.createReview(reviewInfo);
         System.out.println("Review criada com sucesso!");
-
-        showAllReviews();
     }
 }

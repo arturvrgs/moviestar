@@ -64,7 +64,7 @@ public class UserRepository {
     public void saveUserReview(Review review) {
         User user = users.getLast();
         List<String> reviews = user.getReviews();
-        reviews.add(String.valueOf(review.getId()));
+        reviews.add(String.valueOf(review.getMovie()));
         user.setReviews(reviews);
     }
 

@@ -27,17 +27,20 @@ public class Display {
         return Integer.parseInt(scan.nextLine());
     }
 
-    public static void showCollectionById(MovieUserCollection collection) {
+    public static int showCollectionById(Scanner scan, MovieUserCollection collection) {
         flushDisplay();
         header();
         System.out.println("Coleção: " + collection.getDescription());
-        line();
-        System.out.println("Usuário: " + collection.getUser());
+        System.out.println("Autor: " + collection.getUser().getUsername());
+        System.out.println();
         System.out.println("Filmes: ");
-        for(Movie movie : collection.getMovies()) {
-            System.out.println(movie.getTitle());
-        }
+            for(Movie movie : collection.getMovies()) {
+                System.out.println("[" + movie.getTitle() + "]");
+            }
         line();
+        System.out.println("Digite [0] para voltar");
+
+        return  Integer.parseInt(scan.nextLine());
     }
 
     public static int showReviewById(Scanner scan, Review review) {
@@ -59,7 +62,6 @@ public class Display {
         flushDisplay();
         header();
         System.out.println("Usuário: " + user.getUsername());
-        line();
         System.out.println("Review: " + user.getReviews());
         line();
     }
@@ -87,7 +89,7 @@ public class Display {
             System.out.println("Digite [" + review.getId() + "] para [VER MAIS ->]");
             line();
         }
-        System.out.print("Digite [0] para voltar: ");
+        System.out.println("Digite [0] para voltar");
         return Integer.parseInt(scan.nextLine());
     }
 
@@ -97,7 +99,6 @@ public class Display {
         for(User user : users) {
             line();
             System.out.println("Usuário: " + user.getUsername());
-            line();
             System.out.println("Reviews: " + user.getReviews());
             line();
             System.out.println();
@@ -107,19 +108,21 @@ public class Display {
         return Integer.parseInt(scan.nextLine());
     }
 
-    public static void showAllCollections(List<MovieUserCollection> collections) {
+    public static int showAllCollections(Scanner scan, List<MovieUserCollection> collections) {
         flushDisplay();
+        header();
         for(MovieUserCollection collection : collections) {
-            header();
+            line();
             System.out.println("Coleção: " + collection.getDescription());
             System.out.println("Autor: " + collection.getUser().getUsername());
             System.out.println();
-            System.out.println("Filmes: ");
-            for(Movie movie : collection.getMovies()) {
-                System.out.println("[" + movie.getTitle() + "]");
-            }
+            System.out.println("Digite "+collection.getId()+" para [VER MAIS ->]");
             line();
+            System.out.println();
         }
+        System.out.println("Digite [0] para voltar: ");
+
+        return Integer.parseInt(scan.nextLine());
     }
 
     public static String showUserRegisterForm(Scanner scan) {
@@ -133,7 +136,7 @@ public class Display {
     public static int showMainMenu(Scanner scan, String username) {
         flushDisplay();
         header();
-         System.out.printf("     Bem-vindo(a), %s                                 \n", username);
+         System.out.printf("    Bem-vindo(a), %s                                 \n", username);
         line();
         System.out.println("    1-[Listar Filmes]     2-[Listar Reviews]       ");
         System.out.println("                                                   ");

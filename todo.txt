@@ -1,0 +1,9 @@
+formulario para criar coleção
+mostrar coleções ao listar usuario
+tratamento de erros
+dashboards:
+    generos que mais aparecem.
+    quantidade de reviews
+    quantidade de filmes
+    quantidade de usuarios
+    filme mais popular
