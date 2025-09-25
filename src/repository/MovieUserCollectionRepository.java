@@ -2,6 +2,7 @@ package repository;
 
 import model.entity.Movie;
 import model.entity.MovieUserCollection;
+import model.entity.Review;
 import model.entity.User;
 import model.factory.MovieUserCollectionFactory;
 import service.MovieService;
@@ -38,16 +39,16 @@ public class MovieUserCollectionRepository {
 
                 String[] moviesIDS = colunas[2].split(",");
 
-                List<Movie> movies = new ArrayList<>();
+                List<String> moviesTitle = new ArrayList<>();
 
                 for(String movieID : moviesIDS) {
-                   movies.add(movieService.getMovieById(Integer.parseInt(movieID)));
+                    moviesTitle.add(movieService.getMovieById(Integer.parseInt(movieID)).getTitle());
                 }
 
                 MovieUserCollection collection = MovieUserCollectionFactory.createCollection(
                         Integer.parseInt(colunas[0]), //ID
                         userService.getUserById(Integer.parseInt(colunas[1])), //USER
-                        movies, //MOVIES
+                        moviesTitle, //MOVIES
                         colunas[3] //DESCRIPTION
                 );
 
@@ -62,5 +63,8 @@ public class MovieUserCollectionRepository {
 
     public List<MovieUserCollection> getCollections() {
         return collections;
+    }
+    public void save(MovieUserCollection collection) {
+        collections.add(collection);
     }
 }

@@ -1,4 +1,4 @@
-formulario para criar coleção
+arrumar problema com enter quando adiciona mais de um filme na coleção
 mostrar coleções ao listar usuario
 tratamento de erros
 dashboards:

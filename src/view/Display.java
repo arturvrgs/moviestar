@@ -4,6 +4,8 @@ import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -34,8 +36,8 @@ public class Display {
         System.out.println("Autor: " + collection.getUser().getUsername());
         System.out.println();
         System.out.println("Filmes: ");
-            for(Movie movie : collection.getMovies()) {
-                System.out.println("[" + movie.getTitle() + "]");
+            for(String movieTitle : collection.getMovies()) {
+                System.out.println("[" + movieTitle + "]");
             }
         line();
         System.out.println("Digite [0] para voltar");
@@ -120,7 +122,7 @@ public class Display {
             line();
             System.out.println();
         }
-        System.out.println("Digite [0] para voltar: ");
+        System.out.println("Digite [0] para CRIAR COLEÇÃO: ");
 
         return Integer.parseInt(scan.nextLine());
     }
@@ -163,6 +165,39 @@ public class Display {
         line();
         reviewInfo[2] = comment;
         return reviewInfo;
+    }
+
+    public static String[] showCollectionForm(Scanner scan, List<Movie> movies) {
+        flushDisplay();
+        String[] collectionInfo = new String[2];
+
+        header();
+        System.out.println("Digite o nome da coleção: ");
+        String description = scan.nextLine();
+        collectionInfo[0] = description;
+        line();
+        List<Integer> moviesID = new ArrayList<>();
+
+        for(Movie movie : movies) {
+            System.out.println("[" + movie.getId() + "] "+ movie.getTitle());
+        }
+
+        while (true) {
+            System.out.println("Digite o número do filme que deseja adicionar a sua coleção");
+            System.out.println("Digite [0] para FINALIZAR");
+
+            int id = Integer.parseInt(scan.nextLine());
+
+            if(id == 0) {
+                break;
+            } else {
+                moviesID.add(id);
+            }
+        }
+
+        collectionInfo[1] = Arrays.toString(moviesID.toArray());
+
+        return collectionInfo;
     }
 
     private static void flushDisplay() {

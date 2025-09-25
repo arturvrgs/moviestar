@@ -5,10 +5,10 @@ import java.util.List;
 public class MovieUserCollection {
     private int id;
     private User user;
-    private List<Movie> movies;
+    private List<String> movies;
     private String description;
 
-    public MovieUserCollection(int id, User user, List<Movie> movies, String description) {
+    public MovieUserCollection(int id, User user, List<String> movies, String description) {
         this.id = id;
         this.user = user;
         this.movies = movies;
@@ -31,11 +31,11 @@ public class MovieUserCollection {
         this.user = user;
     }
 
-    public List<Movie> getMovies() {
+    public List<String> getMovies() {
         return movies;
     }
 
-    public void setMovies(List<Movie> movies) {
+    public void setMovies(List<String> movies) {
         this.movies = movies;
     }
 

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MovieUserCollectionFactory {
     public static MovieUserCollection createCollection(
-            int id, User user, List<Movie> movies, String description
+            int id, User user, List<String> movies, String description
     ) {
         return new MovieUserCollection(id,user,movies,description);
     }

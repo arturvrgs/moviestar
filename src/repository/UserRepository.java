@@ -35,7 +35,6 @@ public class UserRepository {
                 String linha = scanner.nextLine();
                 String[] colunas = linha.split(";");
 
-
                 String[] reviewsIDs = colunas[2].split(",");
 
                 List<String> movieTitles = new ArrayList<>();
