@@ -186,7 +186,7 @@ public class Display {
             System.out.println("Digite o número do filme que deseja adicionar a sua coleção");
             System.out.println("Digite [0] para FINALIZAR");
 
-            int id = Integer.parseInt(scan.nextLine());
+            int id = Integer.parseInt(scan.nextLine().trim());
 
             if(id == 0) {
                 break;

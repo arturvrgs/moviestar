@@ -40,7 +40,7 @@ public class MovieUserCollectionService {
         List<String> moviesTitle = new ArrayList<>();
 
         for (int i = 0; i < moviesIDSArray.length; i++) {
-            moviesTitle.add(movieService.getMovieById(Integer.parseInt(moviesIDSArray[i])).getTitle());
+            moviesTitle.add(movieService.getMovieById(Integer.parseInt(moviesIDSArray[i].trim())).getTitle());
         }
 
         MovieUserCollection collection = MovieUserCollectionFactory.createCollection(id, user, moviesTitle, description);
