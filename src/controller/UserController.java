@@ -37,12 +37,12 @@ public class UserController {
 
     public void menuOption(
             MovieController movieController, ReviewController reviewController,
-            UserController userController, MovieUserCollectionController movieUserCollectionController
+            UserController userController, MovieUserCollectionController movieUserCollectionController, DashboardController dashboardController
     ) {
 
         String username = userService.getAllUsers().getLast().getUsername();
 
         int option = Display.showMainMenu(scan, username);
-        userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController);
+        userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController, dashboardController);
     }
 }

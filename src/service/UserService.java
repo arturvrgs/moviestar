@@ -1,9 +1,6 @@
 package service;
 
-import controller.MovieController;
-import controller.MovieUserCollectionController;
-import controller.ReviewController;
-import controller.UserController;
+import controller.*;
 import model.entity.Review;
 import model.entity.User;
 import model.factory.UserFactory;
@@ -44,7 +41,7 @@ public class UserService {
 
     public void menuOption(
             int option, MovieController movieController, ReviewController reviewController,
-            UserController userController, MovieUserCollectionController movieUserCollectionController
+            UserController userController, MovieUserCollectionController movieUserCollectionController, DashboardController dashboardController
     ) {
 
             if(option == 1) {
@@ -61,6 +58,10 @@ public class UserService {
 
         if(option == 4) {
             movieUserCollectionController.showAllCollections();
+        }
+
+        if(option == 5) {
+            dashboardController.showDashboard();
         }
     }
 }

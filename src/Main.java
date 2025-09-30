@@ -1,15 +1,9 @@
-import controller.MovieController;
-import controller.MovieUserCollectionController;
-import controller.ReviewController;
-import controller.UserController;
+import controller.*;
 import repository.MovieRepository;
 import repository.MovieUserCollectionRepository;
 import repository.ReviewRepository;
 import repository.UserRepository;
-import service.MovieService;
-import service.MovieUserCollectionService;
-import service.ReviewService;
-import service.UserService;
+import service.*;
 
 import java.io.File;
 
@@ -38,9 +32,12 @@ public class Main {
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository, userRepository, movieService);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService);
 
+        DashboardService dashboardService = new DashboardService(movieService, userService, reviewService, movieUserCollectionService);
+        DashboardController dashboardController = new DashboardController(dashboardService);
+
         userController.registerUser();
 
         while(true)
-            userController.menuOption(movieController, reviewController, userController, movieUserCollectionController);
+            userController.menuOption(movieController, reviewController, userController, movieUserCollectionController, dashboardController);
     }
 }

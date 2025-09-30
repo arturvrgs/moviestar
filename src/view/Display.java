@@ -4,6 +4,7 @@ import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
+import service.DashboardService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -143,11 +144,18 @@ public class Display {
         System.out.println("    1-[Listar Filmes]     2-[Listar Reviews]       ");
         System.out.println("                                                   ");
         System.out.println("    3-[Listar Usuários]   4-[Listar Coleções]      ");
+        System.out.println("                                                   ");
+        System.out.println("    5-[Ver Relatórios]                             ");
         line();
         System.out.print("Escolha uma opção: ");
 
         return Integer.parseInt(scan.nextLine());
     }
+
+    public static void showDashboard(DashboardService dashboardService) {
+        System.out.println(dashboardService.getMostPopularMovie());
+    }
+
 
     public static String[] showReviewForm(Scanner scan, String movieTitle) {
         flushDisplay();
