@@ -27,4 +27,13 @@ public class MovieService {
         }
         return null;
     }
+
+    public Movie getMovieByTitle(String title) {
+        for(Movie movie : getAllMovies()) {
+            if(movie.getTitle() == title) {
+                return movie;
+            }
+        }
+        return null;
+    }
 }

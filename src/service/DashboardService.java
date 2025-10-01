@@ -33,14 +33,38 @@ public class DashboardService {
             }
         }
 
-        //ver qual filme mais se repete
-        String mostPopularMovie = null;
+        return findMostPopular(movieTitles);
+    }
+
+    public String getMostPopularGender() {
+
+        List<String> genderNames = new ArrayList<>();
+
+        for(Review review : reviewService.getAllReviews()) {
+            for(String gender : movieService.getMovieByTitle(review.getMovie()).getGenres()) {
+                genderNames.add(gender);
+            }
+        }
+
+        for(MovieUserCollection collection : collectionService.getAllCollections()) {
+            for(String movie : collection.getMovies()) {
+               for(String genre : movieService.getMovieByTitle(movie).getGenres()) {
+                   genderNames.add(genre);
+               }
+            }
+        }
+
+        return findMostPopular(genderNames);
+    }
+
+    private String findMostPopular(List<String> list) {
+        String mostPopular = null;
         int maxCount = 0;
 
-        for(String movie : movieTitles) {
+        for(String movie : list) {
             int counter = 0;
 
-            for(String item : movieTitles) {
+            for(String item : list) {
                 if(item.equals(movie)) {
                     counter++;
                 }
@@ -48,10 +72,10 @@ public class DashboardService {
 
             if(counter > maxCount) {
                 maxCount = counter;
-                mostPopularMovie = movie;
+                mostPopular = movie;
             }
         }
 
-        return mostPopularMovie;
+        return mostPopular;
     }
 }

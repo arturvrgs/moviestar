@@ -1,4 +1,4 @@
-id;title;language;director;genres;totalReviews;stars;releaseYear;runtime;
+id;title;language;director;genres;releaseYear;runtime;
 1;Bastardos Inglórios;Inglês;Quentin Tarantino;Ação,Comédia,Drama;2009;140;
 2;O Poderoso Chefão;Inglês;Francis Ford Coppola;Crime,Drama;1972;153;
 3;Forrest Gump;Inglês;Robert Zemeckis;Drama,Romance;1994;133;

@@ -145,15 +145,25 @@ public class Display {
         System.out.println("                                                   ");
         System.out.println("    3-[Listar Usuários]   4-[Listar Coleções]      ");
         System.out.println("                                                   ");
-        System.out.println("    5-[Ver Relatórios]                             ");
+        System.out.println("    5-[Ver Relatório]                             ");
         line();
         System.out.print("Escolha uma opção: ");
 
         return Integer.parseInt(scan.nextLine());
     }
 
-    public static void showDashboard(DashboardService dashboardService) {
-        System.out.println(dashboardService.getMostPopularMovie());
+    public static int showDashboard(Scanner scan, DashboardService dashboardService) {
+        flushDisplay();
+        line();
+        System.out.println("                     Dashboard                ");
+        line();
+        System.out.println("Filme mais popular: " + dashboardService.getMostPopularMovie());
+        line();
+        System.out.println("Gênero mais popular: " + dashboardService.getMostPopularGender());
+        line();
+        System.out.println("Digite [0] para voltar: ");
+
+        return Integer.parseInt(scan.nextLine());
     }
 
 
