@@ -24,15 +24,23 @@ public class MovieController {
 
     public void showAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
-        int id = Display.showAllMovies(scan, movies);
 
-        if(id == 0) {
-            return;
-        } else {
-            showMovieById(id);
+        int id;
+
+        while (true) {
+            id = Display.showAllMovies(scan, movies);
+
+            if(id < 0 || id > movies.size()) {
+                System.out.println("Opção Inválida.");
+                continue;
+            }
+
+            if(id == 0) {
+                return;
+            } else {
+                showMovieById(id);
+            }
         }
-
-
     }
 
     public void showMovieById(int id) {

@@ -31,8 +31,20 @@ public class UserController {
     }
 
     public void registerUser() {
-        String username = Display.showUserRegisterForm(scan);
-        userService.registerUser(username);
+
+        String username;
+
+        while(true) {
+            username = Display.showUserRegisterForm(scan);
+
+            if(username == null || username.isBlank()) {
+                System.out.println("O username não pode estar vazio. Tente novamente");
+                continue;
+            }
+
+            userService.registerUser(username);
+            break;
+        }
     }
 
     public void menuOption(
@@ -42,7 +54,17 @@ public class UserController {
 
         String username = userService.getAllUsers().getLast().getUsername();
 
-        int option = Display.showMainMenu(scan, username);
-        userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController, dashboardController);
+        int option;
+        while(true) {
+            option = Display.showMainMenu(scan, username);
+
+            if(option < 1 || option > 5) {
+                System.out.println("Opção Inválida.");
+                continue;
+            }
+
+            userService.menuOption(option, movieController, reviewController, userController, movieUserCollectionController, dashboardController);
+            break;
+        }
     }
 }
