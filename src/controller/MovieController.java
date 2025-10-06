@@ -36,7 +36,7 @@ public class MovieController {
             }
 
             if(id == 0) {
-                return;
+                break;
             } else {
                 showMovieById(id);
             }
@@ -44,15 +44,19 @@ public class MovieController {
     }
 
     public void showMovieById(int id) {
+
         Movie movie = movieService.getMovieById(id);
         int option = Display.showMovieById(scan, movie);
 
         if(option == 0) {
-            showAllMovies();
+            return;
         }
 
         if(option == 1) {
             reviewController.showReviewForm(movie.getTitle());
         }
+
+        System.out.println("Opção Inválida.");
+        showMovieById(id);
     }
 }

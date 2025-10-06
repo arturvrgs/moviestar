@@ -36,6 +36,7 @@ public class DashboardService {
         return findMostPopular(movieTitles);
     }
 
+    //ve todas reviews e todas coleções, ver qual genero mais aparece em cada filme
     public String getMostPopularGender() {
 
         List<String> genderNames = new ArrayList<>();
@@ -61,18 +62,18 @@ public class DashboardService {
         String mostPopular = null;
         int maxCount = 0;
 
-        for(String movie : list) {
+        for(String i : list) {
             int counter = 0;
 
             for(String item : list) {
-                if(item.equals(movie)) {
+                if(item.equals(i)) {
                     counter++;
                 }
             }
 
             if(counter > maxCount) {
                 maxCount = counter;
-                mostPopular = movie;
+                mostPopular = i;
             }
         }
 

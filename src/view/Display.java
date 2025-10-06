@@ -5,6 +5,7 @@ import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
 import service.DashboardService;
+import utils.InputValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -132,7 +133,7 @@ public class Display {
         header();
         System.out.println("  Digite seu Username                              ");
         line();
-        System.out.print("Username : ");
+        System.out.print("Username: ");
         return scan.nextLine();
     }
 
