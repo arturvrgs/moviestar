@@ -2,7 +2,6 @@ package controller;
 
 import model.entity.Movie;
 import service.MovieService;
-import service.UserService;
 import view.Display;
 
 import java.util.List;
@@ -12,14 +11,12 @@ public class MovieController {
 
     private final MovieService movieService;
     private final ReviewController reviewController;
-    private final UserController userController;
 
     Scanner scan = new Scanner(System.in);
 
-    public MovieController(MovieService movieService, ReviewController reviewController, UserController userController) {
+    public MovieController(MovieService movieService, ReviewController reviewController) {
         this.movieService = movieService;
         this.reviewController = reviewController;
-        this.userController = userController;
     }
 
 

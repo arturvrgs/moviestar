@@ -51,7 +51,7 @@ public class Display {
         header();
         System.out.println("Descrição: " + collection.getDescription());
         line();
-        System.out.println("Digite [1] para EDITAR");
+        System.out.println("Digite [1] para EDITAR DESCRIÇÃO");
         System.out.println("Digite [2] para EXCLUIR");
         System.out.println("Digite [0] para VOLTAR");
         line();

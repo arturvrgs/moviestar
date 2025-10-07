@@ -1,11 +1,9 @@
 package controller;
 
 import model.entity.MovieUserCollection;
-import model.entity.Review;
 import repository.MovieUserCollectionRepository;
 import service.MovieService;
 import service.MovieUserCollectionService;
-import service.ReviewService;
 import view.Display;
 
 import java.util.List;

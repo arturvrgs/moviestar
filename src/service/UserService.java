@@ -1,7 +1,6 @@
 package service;
 
 import controller.*;
-import model.entity.Review;
 import model.entity.User;
 import model.factory.UserFactory;
 import repository.UserRepository;

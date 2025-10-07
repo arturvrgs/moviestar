@@ -1,13 +1,8 @@
 package controller;
 
-import model.entity.Movie;
 import model.entity.Review;
-import service.MovieService;
 import service.ReviewService;
-import service.UserService;
 import view.Display;
-
-import javax.xml.validation.Validator;
 import java.util.List;
 import java.util.Scanner;
 
