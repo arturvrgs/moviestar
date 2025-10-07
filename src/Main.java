@@ -30,7 +30,7 @@ public class Main {
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository, userRepository, movieService);
-        MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService);
+        MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService, movieUserCollectionRepository);
 
         DashboardService dashboardService = new DashboardService(movieService, userService, reviewService, movieUserCollectionService);
         DashboardController dashboardController = new DashboardController(dashboardService);

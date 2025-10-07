@@ -5,7 +5,6 @@ import model.entity.MovieUserCollection;
 import model.entity.Review;
 import model.entity.User;
 import service.DashboardService;
-import utils.InputValidator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,8 +42,29 @@ public class Display {
             }
         line();
         System.out.println("Digite [0] para voltar");
-
+        System.out.println("Digite [1] para editar coleção");
         return  Integer.parseInt(scan.nextLine());
+    }
+
+    public static int modifyCollection(Scanner scan, MovieUserCollection collection) {
+        flushDisplay();
+        header();
+        System.out.println("Descrição: " + collection.getDescription());
+        line();
+        System.out.println("Digite [1] para EDITAR");
+        System.out.println("Digite [2] para EXCLUIR");
+        System.out.println("Digite [0] para VOLTAR");
+        line();
+
+        return Integer.parseInt(scan.nextLine());
+    }
+
+    public static String modifyDescription(Scanner scan, MovieUserCollection collection) {
+        flushDisplay();
+        header();
+        System.out.println("Digite a nova descrição: ");
+        line();
+        return scan.nextLine();
     }
 
     public static int showReviewById(Scanner scan, Review review) {

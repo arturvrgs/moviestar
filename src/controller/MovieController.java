@@ -56,7 +56,6 @@ public class MovieController {
             reviewController.showReviewForm(movie.getTitle());
         }
 
-        System.out.println("Opção Inválida.");
         showMovieById(id);
     }
 }

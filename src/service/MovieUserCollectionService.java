@@ -45,7 +45,6 @@ public class MovieUserCollectionService {
 
         MovieUserCollection collection = MovieUserCollectionFactory.createCollection(id, user, moviesTitle, description);
         movieUserCollectionRepository.save(collection);
-//        userRepository.saveUserReview(review);
     }
 
     public List<MovieUserCollection> getAllCollections() {
@@ -62,5 +61,4 @@ public class MovieUserCollectionService {
 
         return null;
     }
-
 }

@@ -5,7 +5,6 @@ import model.entity.Review;
 import service.MovieService;
 import service.ReviewService;
 import service.UserService;
-import utils.InputValidator;
 import view.Display;
 
 import javax.xml.validation.Validator;
