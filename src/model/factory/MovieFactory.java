@@ -2,6 +2,7 @@ package model.factory;
 
 import model.entity.Movie;
 
+//CLASSE CRIADORA DE OBJETO FILME
 public class MovieFactory {
     public static Movie createMovie(
             int id, String title, String language,

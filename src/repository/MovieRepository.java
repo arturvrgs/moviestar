@@ -8,17 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//CLASSE PARA TRAZER E SALVAR FILMES DA BASE DE DADOS
 public class MovieRepository {
 
     private final File moviesFile;
     private final List<Movie> movies = new ArrayList<>();
-    private ReviewRepository reviewRepository;
 
     public MovieRepository(File moviesFile) {
         this.moviesFile = moviesFile;
         getData();
     }
 
+    //CRIA UM OBJETO PARA CADA LINHA DO ARQUIVO TXT E SALVA NUMA LISTA
     public List<Movie> getData() {
 
         try (Scanner scanner = new Scanner(moviesFile)) {

@@ -16,6 +16,7 @@ public class UserController {
         this.userService = userService;
     }
 
+    // MOSTRA TODOS USUARIOS E CONTROLA AÇÕES DO USUARIO
     public void showAllUsers() {
         List<User> users = userService.getAllUsers();
         int option = Display.showAllUsers(scan, users);
@@ -25,11 +26,13 @@ public class UserController {
         }
     }
 
+    // MOSTRA USUARIO POR ID E CONTROLA AÇÕES DO USUARIO
     public void showUserById(int id) {
         User user = userService.getUserById(id);
         Display.showUserById(user);
     }
 
+    // MOSTRA FORMULARIO DE REGISTRO DE USUARIO E CONTROLA ACOES DO USUARIO;
     public void registerUser() {
 
         String username;
@@ -47,6 +50,7 @@ public class UserController {
         }
     }
 
+    // MOSTRA MENU PRINCIPAL E CONTROLA ACOES DO USUARIO
     public void menuOption(
             MovieController movieController, ReviewController reviewController,
             UserController userController, MovieUserCollectionController movieUserCollectionController, DashboardController dashboardController

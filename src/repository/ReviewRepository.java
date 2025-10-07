@@ -1,7 +1,6 @@
 package repository;
 
 import model.entity.Review;
-import model.entity.User;
 import model.factory.ReviewFactory;
 import service.MovieService;
 import service.UserService;
@@ -12,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//CLASSE PARA TRAZER E SALVAR REVIEWS DA BASE DE DADOS
 public class ReviewRepository {
 
     private final File reviewsFile;
@@ -27,6 +27,7 @@ public class ReviewRepository {
         getData();
     }
 
+    //CRIA UM OBJETO PARA CADA LINHA DO ARQUIVO TXT E SALVA NUMA LISTA
     public List<Review> getData() {
 
         try (Scanner scanner = new Scanner(reviewsFile)) {
@@ -39,12 +40,12 @@ public class ReviewRepository {
                 String[] colunas = linha.split(";");
 
                 Review review = ReviewFactory.createReview(
-                        Integer.parseInt(colunas[0]), // id
-                        userService.getUserById(Integer.parseInt(colunas[1])), // user
-                        movieService.getMovieById(Integer.parseInt(colunas[2])).getTitle(), // movie
-                        Integer.parseInt(colunas[3]), // stars
-                        colunas[4],                   // comment
-                        colunas[5]                    // publishDate
+                        Integer.parseInt(colunas[0]), // ID
+                        userService.getUserById(Integer.parseInt(colunas[1])), // USER
+                        movieService.getMovieById(Integer.parseInt(colunas[2])).getTitle(), // MOVIE
+                        Integer.parseInt(colunas[3]), // STARS
+                        colunas[4],                   // COMMENT
+                        colunas[5]                    // PUBLISHSDATE
                 );
 
                 reviews.add(review);
@@ -56,6 +57,7 @@ public class ReviewRepository {
         return reviews;
     }
 
+    // SALVA NOVA REVIEW
     public void save(Review review) {
         reviews.add(review);
     }

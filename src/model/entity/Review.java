@@ -1,5 +1,6 @@
 package model.entity;
 
+//CLASSE BASE DE REVIEWS
 public class Review {
 
     private int id;
@@ -11,6 +12,14 @@ public class Review {
 
     public Review(int id, User user, String movie, int stars, String comment, String publishDate) {
         this.id = id;
+        this.user = user;
+        this.movie = movie;
+        this.stars = stars;
+        this.comment = comment;
+        this.publishDate = publishDate;
+    }
+
+    public Review(User user, String movie, int stars, String comment, String publishDate) {
         this.user = user;
         this.movie = movie;
         this.stars = stars;

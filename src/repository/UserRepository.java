@@ -4,15 +4,13 @@ import model.entity.Review;
 import model.entity.User;
 import model.factory.UserFactory;
 import service.MovieService;
-import service.ReviewService;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
+//CLASSE PARA TRAZER E SALVAR USUÁRIOS DA BASE DE DADOS
 public class UserRepository {
     private final File usersFile;
     private final List<User> users = new ArrayList<>();
@@ -24,6 +22,7 @@ public class UserRepository {
         getData();
     }
 
+    //CRIA UM OBJETO PARA CADA LINHA DO ARQUIVO TXT E SALVA NUMA LISTA
     public List<User> getData() {
 
         try (Scanner scanner = new Scanner(usersFile)) {
@@ -43,8 +42,8 @@ public class UserRepository {
 
                 User user = UserFactory.createUser(
                     Integer.parseInt(colunas[0]),  // id
-                    colunas[1], //username
-                        movieTitles  //reviews
+                    colunas[1], // USEERNAME
+                        movieTitles  // REVIEWS
                 );
 
                 users.add(user);
@@ -56,10 +55,12 @@ public class UserRepository {
         return users;
     }
 
+    // SALVA NOVO USUÁRIO
     public void save(User user) {
         users.add(user);
     }
 
+    // SALVA NOVA REVIEW DO USUARIO
     public void saveUserReview(Review review) {
         User user = users.getLast();
         List<String> reviews = user.getReviews();

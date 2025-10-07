@@ -1,19 +1,16 @@
 package repository;
 
-import model.entity.Movie;
 import model.entity.MovieUserCollection;
-import model.entity.Review;
-import model.entity.User;
 import model.factory.MovieUserCollectionFactory;
 import service.MovieService;
 import service.UserService;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+//CLASSE PARA TRAZER E SALVAR COLEÇÕES DA BASE DE DADOS
 public class MovieUserCollectionRepository {
     private final File movieUserCollectionsFile;
     private final UserService userService;
@@ -27,6 +24,7 @@ public class MovieUserCollectionRepository {
         getData();
     }
 
+    //CRIA UM OBJETO PARA CADA LINHA DO ARQUIVO TXT E SALVA NUMA LISTA
     public List<MovieUserCollection> getData() {
 
         try (Scanner scanner = new Scanner(movieUserCollectionsFile)) {
@@ -64,6 +62,8 @@ public class MovieUserCollectionRepository {
     public List<MovieUserCollection> getCollections() {
         return collections;
     }
+
+    // SALVA NOVA COLEÇÃO
     public void save(MovieUserCollection collection) {
         collections.add(collection);
     }

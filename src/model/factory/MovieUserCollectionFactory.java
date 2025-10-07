@@ -1,11 +1,10 @@
 package model.factory;
 
-import model.entity.Movie;
 import model.entity.MovieUserCollection;
 import model.entity.User;
-
 import java.util.List;
 
+//CLASSE CRIADORA DE OBJETO COLEÇÃO
 public class MovieUserCollectionFactory {
     public static MovieUserCollection createCollection(
             int id, User user, List<String> movies, String description

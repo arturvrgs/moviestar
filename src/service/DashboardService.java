@@ -7,18 +7,16 @@ import java.util.*;
 
 public class DashboardService {
     private MovieService movieService;
-    private UserService userService;
     private ReviewService reviewService;
     private MovieUserCollectionService collectionService;
 
-    public DashboardService(MovieService movieService, UserService userService, ReviewService reviewService, MovieUserCollectionService collectionService) {
+    public DashboardService(MovieService movieService, MovieUserCollectionService collectionService) {
         this.movieService = movieService;
-        this.userService = userService;
         this.reviewService = reviewService;
         this.collectionService = collectionService;
     }
 
-    //ve todas reviews e todas coleções, ver qual filme mais aparece em cada
+    // RETORNA O FILME MAIS RECORRENTE EM COLEÇÕES E REVIEWS
     public String getMostPopularMovie() {
 
         List<String> movieTitles = new ArrayList<>();
@@ -36,7 +34,7 @@ public class DashboardService {
         return findMostPopular(movieTitles);
     }
 
-    //ve todas reviews e todas coleções, ver qual genero mais aparece em cada filme
+    // RETORNA O GENERO MAIS RECORRENTE EM COLEÇÕES E REVIEWS
     public String getMostPopularGender() {
 
         List<String> genderNames = new ArrayList<>();
@@ -58,6 +56,7 @@ public class DashboardService {
         return findMostPopular(genderNames);
     }
 
+    // RETORNA A STRING MAIS RECORRENTE DE UMA LISTA
     private String findMostPopular(List<String> list) {
         String mostPopular = null;
         int maxCount = 0;

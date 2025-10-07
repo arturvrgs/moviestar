@@ -1,7 +1,7 @@
 package model.entity;
-
 import java.util.List;
 
+//CLASSE BASE DE COLEÇÕES
 public class MovieUserCollection {
     private int id;
     private User user;
@@ -10,6 +10,12 @@ public class MovieUserCollection {
 
     public MovieUserCollection(int id, User user, List<String> movies, String description) {
         this.id = id;
+        this.user = user;
+        this.movies = movies;
+        this.description = description;
+    }
+
+    public MovieUserCollection(User user, List<String> movies, String description) {
         this.user = user;
         this.movies = movies;
         this.description = description;

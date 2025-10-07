@@ -2,6 +2,7 @@ package model.entity;
 
 import java.util.List;
 
+//CLASSE BASE DE USUÁRIOS
 public class User {
 
     private int id;
@@ -12,6 +13,11 @@ public class User {
         this.id = id;
         this.username = username;
         this.reviews = reviews;
+    }
+
+    public User(List<String> reviews, String username) {
+        this.reviews = reviews;
+        this.username = username;
     }
 
     public int getId() {

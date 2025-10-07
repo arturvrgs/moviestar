@@ -22,6 +22,8 @@ public class MovieController {
         this.userController = userController;
     }
 
+
+    // MOSTRA TODOS OS FILMES E CONTROLA AÇÕES DO USUÁRIO
     public void showAllMovies() {
         List<Movie> movies = movieService.getAllMovies();
 
@@ -43,6 +45,7 @@ public class MovieController {
         }
     }
 
+    // MOSTRA FILME POR ID CONTROLA AÇÕES DO USUÁRIO
     public void showMovieById(int id) {
 
         Movie movie = movieService.getMovieById(id);

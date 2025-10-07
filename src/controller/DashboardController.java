@@ -14,6 +14,7 @@ public class DashboardController {
         this.dashboardService = dashboardService;
     }
 
+    // CHAMA DISPLAY DO DASHBOARD
     public void showDashboard() {
         Display.showDashboard(scan, dashboardService);
     }

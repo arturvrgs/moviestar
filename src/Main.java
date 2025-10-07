@@ -32,7 +32,7 @@ public class Main {
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository, userRepository, movieService);
         MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService, movieUserCollectionRepository);
 
-        DashboardService dashboardService = new DashboardService(movieService, userService, reviewService, movieUserCollectionService);
+        DashboardService dashboardService = new DashboardService(movieService, movieUserCollectionService);
         DashboardController dashboardController = new DashboardController(dashboardService);
 
         userController.registerUser();

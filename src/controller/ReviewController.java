@@ -19,6 +19,8 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
+
+    // MOSTRA TODAS REVIEWS E CONTROLA AÇÕES DO USUÁRIO
     public void showAllReviews() {
         List<Review> reviews = reviewService.getAllReviews();
         int id =  Display.showAllReviews(scan, reviews);
@@ -30,6 +32,7 @@ public class ReviewController {
         }
     }
 
+    // MOSTRA REVIEW PELO ID E CONTROLA AÇÕES DO USUÁRIO
     public void showReviewById(int id) {
         Review review = reviewService.getReviewById(id);
 
@@ -40,6 +43,7 @@ public class ReviewController {
         }
     }
 
+    // MOSTRA FORMULARIO DE CRIAÇÃO DE REVIEW
     public void showReviewForm(String movieTitle) {
         while(true) {
             String[] reviewInfo = Display.showReviewForm(scan, movieTitle);

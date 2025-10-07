@@ -1,15 +1,10 @@
 package service;
 
-import model.entity.Movie;
 import model.entity.MovieUserCollection;
-import model.entity.Review;
 import model.entity.User;
 import model.factory.MovieUserCollectionFactory;
-import model.factory.ReviewFactory;
 import repository.MovieUserCollectionRepository;
 import repository.UserRepository;
-
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,6 +19,7 @@ public class MovieUserCollectionService {
         this.movieService = movieService;
     }
 
+    // CRIA NOVA COLEÇÃO
     public void createCollection(String[] collectionInfo) {
 
         int id = movieUserCollectionRepository.getCollections().getLast().getId() + 1;
@@ -47,10 +43,12 @@ public class MovieUserCollectionService {
         movieUserCollectionRepository.save(collection);
     }
 
+    // RETORNA TODAS COLEÇÕES
     public List<MovieUserCollection> getAllCollections() {
         return movieUserCollectionRepository.getCollections();
     }
 
+    // RETORNA COLEÇÃO PELO ID
     public MovieUserCollection getCollectionById(int id) {
 
         for(MovieUserCollection collection : getAllCollections()) {

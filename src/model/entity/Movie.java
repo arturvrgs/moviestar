@@ -1,7 +1,6 @@
 package model.entity;
 
-import java.sql.SQLOutput;
-
+//CLASSE BASE DE FILMES
 public class Movie {
 
     private int id;
@@ -24,6 +23,15 @@ public class Movie {
         this.title = title;
         this.language = language;
         this.id = id;
+    }
+
+    public Movie(int runtime, int releaseYear, String[] genres, String director, String language, String title) {
+        this.runtime = runtime;
+        this.releaseYear = releaseYear;
+        this.genres = genres;
+        this.director = director;
+        this.language = language;
+        this.title = title;
     }
 
     public int getId() {

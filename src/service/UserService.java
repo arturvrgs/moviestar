@@ -12,14 +12,17 @@ import java.util.List;
 public class UserService {
 
     private final UserRepository userRepository;
-        public UserService(UserRepository userRepository) {
+
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    // RETORNA TODOS USUARIOS
     public List<User> getAllUsers() {
         return userRepository.getUsers();
     }
 
+    // RETORNA USUARIO PELO ID
     public User getUserById(int id) {
         for(User user : getAllUsers()) {
             if(user.getId() == id) {
@@ -29,6 +32,7 @@ public class UserService {
         return null;
     }
 
+    // REGISTRA USUARIO
     public void registerUser(String username) {
 
             int id = userRepository.getUsers().getLast().getId() + 1;
@@ -39,6 +43,7 @@ public class UserService {
             userRepository.save(user);
     }
 
+    // LÊ AÇÕES DO USUARIO NO MENU PRINCIPAL
     public void menuOption(
             int option, MovieController movieController, ReviewController reviewController,
             UserController userController, MovieUserCollectionController movieUserCollectionController, DashboardController dashboardController

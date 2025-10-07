@@ -24,6 +24,7 @@ public class MovieUserCollectionController {
         this.movieUserCollectionRepository = movieUserCollectionRepository;
     }
 
+    // MOSTRA TODAS COLEÇÕES E CONTROLA AÇÕES DO USUÁRIO
     public void showAllCollections() {
         List<MovieUserCollection> collections = movieUserCollectionService.getAllCollections();
 
@@ -36,6 +37,7 @@ public class MovieUserCollectionController {
         }
     }
 
+    // MOSTRA COLEÇÃO PELO ID E CONTROLA AÇÕES DO USUÁRIO
     public void showCollectionById(int id) {
         MovieUserCollection collection = movieUserCollectionService.getCollectionById(id);
         int option = Display.showCollectionById(scan, collection);
@@ -54,6 +56,7 @@ public class MovieUserCollectionController {
         }
     }
 
+    // MOSTRA FORMULARIO DE CRIAÇÃO DE COLEÇÃO
     public void showCollectionForm() {
         String[] collectionInfo = Display.showCollectionForm(scan, movieService.getAllMovies());
         movieUserCollectionService.createCollection(collectionInfo);

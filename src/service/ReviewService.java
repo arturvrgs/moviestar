@@ -19,6 +19,8 @@ public class ReviewService {
         this.userRepository = userRepository;
     }
 
+
+    // CRIA NOVA REVIEW
     public void createReview(String[] reviewInfo) {
 
         int id = reviewRepository.getReviews().getLast().getId() + 1;
@@ -34,10 +36,12 @@ public class ReviewService {
         userRepository.saveUserReview(review);
     }
 
+    // RETORNA TODAS REVIEWS
     public List<Review> getAllReviews() {
         return reviewRepository.getReviews();
     }
 
+    // RETORNA REVIEW PELO ID
     public Review getReviewById(int id) {
         for(Review review : getAllReviews()) {
             if(review.getId() == id) {

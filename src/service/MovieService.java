@@ -1,9 +1,7 @@
 package service;
 
 import model.entity.Movie;
-import model.entity.Review;
 import repository.MovieRepository;
-import repository.ReviewRepository;
 
 import java.util.List;
 
@@ -15,10 +13,14 @@ public class MovieService {
         this.movieRepository = movieRepository;
     }
 
+
+    // RETORNA TODOS FILMES
     public List<Movie> getAllMovies() {
         return movieRepository.getMovies();
     }
 
+
+    // RETORNA FILME PELO ID
     public Movie getMovieById(int id) {
         for(Movie movie : getAllMovies()) {
             if(movie.getId() == id) {
@@ -28,6 +30,8 @@ public class MovieService {
         return null;
     }
 
+
+    // RETORNA FILME PELO TITULO
     public Movie getMovieByTitle(String title) {
         for(Movie movie : getAllMovies()) {
             if(movie.getTitle() == title) {
