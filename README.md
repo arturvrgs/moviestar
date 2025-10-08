@@ -98,15 +98,9 @@ id;user;movies;description;
 
 ## Limitações Conhecidas
 
-### Persistência de Dados
-- **Arquivos TXT**: Os dados são armazenados em arquivos de texto simples, sem transações ou controle de concorrência
-- **Sem validação de integridade**: Não há verificação automática de consistência entre os arquivos
-- **Formato fixo**: Estrutura rígida de dados separados por ponto e vírgula
-
 ### Sistema de Usuários
 - **Registro único por execução**: Apenas um usuário pode ser registrado por sessão
 - **Usuário ativo fixo**: O sistema sempre usa o último usuário registrado
-
 
 ## Funcionalidades Técnicas
 
