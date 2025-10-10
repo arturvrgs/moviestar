@@ -37,8 +37,9 @@ public class UserRepository {
                 String[] reviewsIDs = colunas[2].split(",");
 
                 List<String> movieTitles = new ArrayList<>();
-                movieTitles.add(movieService.getMovieById(Integer.parseInt(reviewsIDs[0])).getTitle());
-                movieTitles.add(movieService.getMovieById(Integer.parseInt(reviewsIDs[1])).getTitle());
+                for (String reviewID : reviewsIDs) {
+                    movieTitles.add(movieService.getMovieById(Integer.parseInt(reviewID)).getTitle());
+                }
 
                 User user = UserFactory.createUser(
                     Integer.parseInt(colunas[0]),  // id
