@@ -4,6 +4,7 @@ import model.entity.MovieUserCollection;
 import repository.MovieUserCollectionRepository;
 import service.MovieService;
 import service.MovieUserCollectionService;
+import service.UserService;
 import view.Display;
 
 import java.util.List;
@@ -13,13 +14,15 @@ public class MovieUserCollectionController {
     private final MovieUserCollectionService movieUserCollectionService;
     private final MovieUserCollectionRepository movieUserCollectionRepository;
     private final MovieService movieService;
+    private final UserService userService;
 
     Scanner scan = new Scanner(System.in);
 
-    public MovieUserCollectionController(MovieUserCollectionService movieUserCollectionService, MovieService movieService, MovieUserCollectionRepository movieUserCollectionRepository) {
+    public MovieUserCollectionController(MovieUserCollectionService movieUserCollectionService, MovieService movieService, MovieUserCollectionRepository movieUserCollectionRepository, UserService userService) {
         this.movieUserCollectionService = movieUserCollectionService;
         this.movieService = movieService;
         this.movieUserCollectionRepository = movieUserCollectionRepository;
+        this.userService = userService;
     }
 
     // MOSTRA TODAS COLEÇÕES E CONTROLA AÇÕES DO USUÁRIO
@@ -41,7 +44,13 @@ public class MovieUserCollectionController {
         int option = Display.showCollectionById(scan, collection);
 
         if(option == 1) {
-           int choice = Display.modifyCollection(scan, collection);
+
+            if(collection.getUser().getId() != userService.getAllUsers().getLast().getId()) {
+                System.out.println("Você não pode editar a coleção de outros usuários.");
+                return;
+            }
+
+            int choice = Display.modifyCollection(scan, collection);
 
            if(choice == 1) {
                String newDescription = Display.modifyDescription(scan, collection);

@@ -10,7 +10,7 @@ public class DashboardService {
     private ReviewService reviewService;
     private MovieUserCollectionService collectionService;
 
-    public DashboardService(MovieService movieService, MovieUserCollectionService collectionService) {
+    public DashboardService(MovieService movieService, MovieUserCollectionService collectionService, ReviewService reviewService) {
         this.movieService = movieService;
         this.reviewService = reviewService;
         this.collectionService = collectionService;

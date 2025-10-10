@@ -26,13 +26,13 @@ public class Main {
         ReviewService reviewService = new ReviewService(reviewRepository, userRepository);
 
         ReviewController reviewController = new ReviewController(reviewService);
-        MovieController movieController = new MovieController(movieService, reviewController, userController);
+        MovieController movieController = new MovieController(movieService, reviewController);
 
         MovieUserCollectionRepository movieUserCollectionRepository = new MovieUserCollectionRepository(MOVIE_USER_COLLECTIONS,userService, movieService);
         MovieUserCollectionService movieUserCollectionService = new MovieUserCollectionService(movieUserCollectionRepository, userRepository, movieService);
-        MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService, movieUserCollectionRepository);
+        MovieUserCollectionController movieUserCollectionController = new MovieUserCollectionController(movieUserCollectionService, movieService, movieUserCollectionRepository, userService);
 
-        DashboardService dashboardService = new DashboardService(movieService, movieUserCollectionService);
+        DashboardService dashboardService = new DashboardService(movieService, movieUserCollectionService, reviewService);
         DashboardController dashboardController = new DashboardController(dashboardService);
 
         userController.registerUser();
